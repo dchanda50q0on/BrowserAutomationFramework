@@ -6,25 +6,24 @@ from core.base_test import BaseTest
 
 
 def discover_tests(base_path: str = "tests") -> List[Type[BaseTest]]:
-    """Improved test discovery that handles nested directories"""
+    """Improved test discovery that works in CI and locally"""
     test_classes = []
     tests_path = Path(base_path)
 
-    # Recursively find all test files
-    for path in tests_path.rglob("test_*.py"):
+    # Convert path to be compatible with both Windows and Linux
+    for test_file in tests_path.rglob("test_*.py"):
         try:
-            # Convert path to module format (tests.subdir.test_file)
-            module_path = str(path.with_suffix('')).replace('\\', '.')
+            # Convert path to module format (e.g., tests.test_suite_1.test_accenture_careers)
+            module_path = ".".join(test_file.with_suffix('').parts)
             module = importlib.import_module(module_path)
 
-            for name in dir(module):
-                obj = getattr(module, name)
+            for name, obj in vars(module).items():
                 if (isinstance(obj, type) and
                         issubclass(obj, BaseTest) and
                         obj != BaseTest):
                     test_classes.append(obj)
 
         except ImportError as e:
-            print(f"⚠️ Could not import {path.name}: {str(e)}")
+            print(f"⚠️ Could not import {test_file.name}: {str(e)}")
 
     return test_classes

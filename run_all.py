@@ -2,6 +2,12 @@ import asyncio
 from core.test_runner import TestRunner
 from core.test_discover import discover_tests
 import sys
+from pathlib import Path
+
+# Add project root to path (works everywhere)
+sys.path.append(str(Path(__file__).parent))
+
+
 
 
 async def run_all_tests():
