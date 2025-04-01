@@ -1,13 +1,13 @@
 name: Browser Automation Tests
 
-on: [push, pull_request]  # Triggers on every push/PR
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4  # Checks out your code
+      - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -16,19 +16,20 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           playwright install
-          playwright install-deps  # Linux browser dependencies
+          playwright install-deps
 
       - name: Run tests
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HEADLESS: "true"
-        run: python -m core.run_all  # Your test runner
+        run: python -m core.run_all
 
-      - name: Upload results
-        if: always()  # Upload even if tests fail
-        uses: actions/upload-artifact@v3
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: test-results
           path: |
