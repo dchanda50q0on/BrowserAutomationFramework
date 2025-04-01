@@ -1,6 +1,7 @@
 import asyncio
 from core.test_runner import TestRunner
 from core.test_discover import discover_tests
+import sys
 
 
 async def run_all_tests():

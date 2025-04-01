@@ -26,7 +26,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HEADLESS: "true"
-        run: python -m core.run_all
+        run: python -m run_all
 
       - name: Upload test results
         if: always()
