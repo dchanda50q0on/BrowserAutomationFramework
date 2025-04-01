@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Automation Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .summary { background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+        .test-card { border: 1px solid #ddd; border-radius: 5px; padding: 15px; margin-bottom: 10px; }
+        .passed { border-left: 5px solid #4CAF50; }
+        .failed { border-left: 5px solid #F44336; }
+        .test-title { font-weight: bold; margin-bottom: 10px; }
+        .screenshot { max-width: 100%; margin-top: 10px; border: 1px solid #ddd; }
+        pre { background: #f5f5f5; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        .timestamp { color: #666; font-size: 0.9em; }
+        .summary-item { display: inline-block; margin-right: 20px; }
+        .summary-value { font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <h1>Test Automation Report</h1>
+    <div class="timestamp">Generated on: {{ report.timestamp }}</div>
+
+    <div class="summary">
+        <h2>Summary</h2>
+        <div>
+            <span class="summary-item">Total: <span class="summary-value">{{ report.summary.total }}</span></span>
+            <span class="summary-item">Passed: <span class="summary-value" style="color: #4CAF50;">{{ report.summary.passed }}</span></span>
+            <span class="summary-item">Failed: <span class="summary-value" style="color: #F44336;">{{ report.summary.failed }}</span></span>
+            <span class="summary-item">Pass Rate: <span class="summary-value">{{ "%.2f"|format(report.summary.passed / report.summary.total * 100) }}%</span></span>
+        </div>
+    </div>
+
+    <h2>Test Details</h2>
+    {% for test in report.details %}
+    <div class="test-card {{ test.status }}">
+        <div class="test-title">{{ test.test_name }} - <span style="color: {% if test.status == 'passed' %}#4CAF50{% else %}#F44336{% endif %};">{{ test.status|upper }}</span></div>
+
+        {% if test.status == 'failed' %}
+            <div><strong>Error:</strong> {{ test.error }}</div>
+            {% if test.screenshot %}
+                <div><strong>Screenshot:</strong></div>
+                <img src="{{ test.screenshot }}" class="screenshot" alt="Failure screenshot">
+            {% endif %}
+        {% else %}
+            <pre>{{ test.result|tojson(indent=2) }}</pre>
+        {% endif %}
+
+        <div class="timestamp">Duration: {{ test.duration }} seconds</div>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,10 @@
+test_name,test_description,steps,validation
+GoogleSearch,Search for a term on Google,"1. Open google.com
+2. Search for ChatGPT
+3. Click first result","1. Verify page title contains ChatGPT
+2. Verify URL is valid"
+LoginTest,Admin login,"1. Open {base_url}/login
+2. Enter username {admin_user}
+3. Enter password {admin_pass}
+4. Click submit","1. Verify dashboard appears
+2. Verify welcome message"

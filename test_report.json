@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-04-01T12:46:13.004420",
+  "summary": {
+    "total": 2,
+    "passed": 1,
+    "failed": 1
+  },
+  "details": [
+    {
+      "test_name": "TestGoogleSearch",
+      "status": "passed",
+      "result": {
+        "search_query": "Python programming",
+        "first_result_title": "Python programming - Google Search",
+        "first_result_url": "https://www.google.com/search?q=Python+programming&sca_esv=fc2dc54ee7eb1be7&source=hp&ei=bxjsZ77-Lt6Cm9cP3aDZsQo&iflsig=ACkRmUkAAAAAZ-wmf43rQF1DPkF_OfeQhLD3V20aTWBa&ved=0ahUKEwj-8f2-pLeMAxVeweYEHV1QNqYQ4dUDCBA&oq=Python+programming&gs_lp=Egdnd3Mtd2l6IhJQeXRob24gcHJvZ3JhbW1pbmcyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESJcXUABYAHAAeACQAQCYAUugAUuqAQExuAEMyAEA-AEBmAIBoAJTmAMAkgcBMaAHtQU&sclient=gws-wiz&sei=gxjsZ93eIcvO0PEPycTk6A0"
+      },
+      "duration": 68.24
+    },
+    {
+      "test_name": "TestAccentureCareers",
+      "status": "failed",
+      "error": "",
+      "duration": 94.43
+    }
+  ]
+}
