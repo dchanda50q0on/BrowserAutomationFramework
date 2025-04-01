@@ -1,4 +1,6 @@
-browser-use
+git+https://github.com/browser-use/browser-use.git@main
+# Or use a specific version:
+# git+https://github.com/browser-use/browser-use.git@v1.2.3
 langchain-google-genai~=2.1.2
 playwright
 pydantic~=2.11.1
