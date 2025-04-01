@@ -1,11 +1,8 @@
-git+https://github.com/browser-use/browser-use.git@main
-# Or use a specific version:
-# git+https://github.com/browser-use/browser-use.git@v1.2.3
-langchain-google-genai~=2.1.2
-playwright
-pydantic~=2.11.1
-python-dotenv~=1.1.0
+browser-use==0.1.39  # Version that works with pydantic 2.10.x
+pydantic>=2.10.4,<2.11.0
+playwright>=1.49.0
+python-dotenv>=1.0.1
 pyyaml
 Jinja2~=3.1.6
-openai~=1.70.0
 pytest~=8.3.5
+openai~=1.70.0
