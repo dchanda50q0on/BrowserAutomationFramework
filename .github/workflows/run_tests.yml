@@ -36,7 +36,7 @@ jobs:
           ls -R
           
           # Run tests with error handling
-          if ! python -m core.run_all; then
+          if ! python -m run_all; then
             echo "Test execution failed, creating empty report"
             echo '{"summary": {"total": 0, "passed": 0, "failed": 0}}' > test_report.json
           fi
