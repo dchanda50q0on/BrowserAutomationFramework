@@ -15,6 +15,8 @@
         .summary-item { display: inline-block; margin-right: 20px; }
         .summary-value { font-weight: bold; font-size: 1.2em; }
     </style>
+
+
 </head>
 <body>
     <h1>Test Automation Report</h1>
@@ -27,6 +29,7 @@
             <span class="summary-item">Passed: <span class="summary-value" style="color: #4CAF50;">{{ report.summary.passed }}</span></span>
             <span class="summary-item">Failed: <span class="summary-value" style="color: #F44336;">{{ report.summary.failed }}</span></span>
             <span class="summary-item">Pass Rate: <span class="summary-value">{{ "%.2f"|format(report.summary.passed / report.summary.total * 100) }}%</span></span>
+            <span class="summary-item">Pass Rate: <span class="summary-value">{% if report.summary.total > 0 %}{{ "%.2f"|format(report.summary.passed / report.summary.total * 100) }}%{% else %}0.00%{% endif %}</span> </span>
         </div>
     </div>
 

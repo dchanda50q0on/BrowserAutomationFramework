@@ -48,12 +48,28 @@ class TestReport:
         })
 
     def generate_report(self, format: str = 'all'):
+        # Ensure we have at least one test
+        if self.results['summary']['total'] == 0:
+            self.results['summary'] = {'total': 0, 'passed': 0, 'failed': 0}
+            print("⚠️ No test results to report")
+            return self.results
+
+        # Safe division for pass rate
+        total = self.results['summary']['total']
+        passed = self.results['summary']['passed']
+        self.results['summary']['pass_rate'] = (passed / total * 100) if total > 0 else 0
+
         if format in ('json', 'all'):
             with open('test_report.json', 'w') as f:
                 json.dump(self.results, f, indent=2)
 
         if format in ('html', 'all'):
-            html_report_path = self.html_reporter.generate_html_report(self.results)
-            print(f"HTML report generated: {html_report_path}")
+            try:
+                html_report_path = self.html_reporter.generate_html_report(self.results)
+                print(f"📊 HTML report generated: {html_report_path}")
+            except Exception as e:
+                print(f"❌ Failed to generate HTML report: {str(e)}")
+
+
 
         return self.results
