@@ -27,7 +27,9 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HEADLESS: "true"
-        run: python -m run_all
+        run: |
+          python -c "import sys; print(sys.path)"  # Debug paths
+          python -m run_all
 
       - name: Upload test results
         if: always()
