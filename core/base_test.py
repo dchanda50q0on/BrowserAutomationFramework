@@ -3,7 +3,7 @@ import os
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any, Optional, Type
 
 from browser_use.agent.service import Agent
 from browser_use.controller.service import Controller
@@ -16,7 +16,13 @@ class BaseTest(ABC):
     def __init__(self):
         self.screenshot_dir = Config.get_screenshot_dir()
         self.screenshot_dir.mkdir(exist_ok=True)
-        self.controller = Controller(output_model=self.get_output_model())
+
+        # Get the output model class (not instance)
+        output_model_class = self.get_output_model()
+
+        # Initialize Controller with the model class
+        self.controller = Controller(output_model=output_model_class)
+
         self.llm = self._initialize_llm()
 
     def _initialize_llm(self):
@@ -33,13 +39,13 @@ class BaseTest(ABC):
         pass
 
     @abstractmethod
-    def get_output_model(self) -> BaseModel:
-        """Define the expected output Pydantic model"""
+    def get_output_model(self) -> Type[BaseModel]:
+        """Return the output model CLASS (not instance)"""
         pass
 
     @abstractmethod
     def validate_results(self, result: BaseModel):
-        """Validate the test results"""
+        """Validate the test results against the output model"""
         pass
 
     async def _take_screenshot(self, agent: Agent, filename: str) -> Optional[str]:
@@ -69,24 +75,28 @@ class BaseTest(ABC):
         )
 
         try:
-            # Start the agent and get the browser context
-            await agent.start()
+            # Start the agent
+            if hasattr(agent, 'start'):
+                await agent.start()
 
-            # Ensure headless mode is properly set
-            if hasattr(agent, 'browser'):
-                await agent.browser.start(headless=True)
-
+            # Execute the test
             history = await agent.run()
             history.save_to_file(f'history_{self.__class__.__name__}.json')
+
+            # Validate results
             test_result = history.final_result()
             validated_result = self.get_output_model().model_validate_json(test_result)
             self.validate_results(validated_result)
             return validated_result
+
         except Exception as e:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             screenshot_file = f"failure_{self.__class__.__name__}_{timestamp}.png"
             await self._take_screenshot(agent, screenshot_file)
             raise RuntimeError(f"Test failed: {str(e)}") from e
+
         finally:
             if hasattr(agent, 'close_browser'):
                 await agent.close_browser()
+            elif hasattr(agent, 'close'):
+                await agent.close()

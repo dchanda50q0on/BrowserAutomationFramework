@@ -10,7 +10,7 @@ env:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # Using stable LTS version
     timeout-minutes: 30
 
     steps:
@@ -33,8 +33,7 @@ jobs:
             libdrm-dev \
             libxkbcommon-dev \
             libgtk-3-dev \
-            libasound2 \
-            xvfb
+            libasound2  # Correct package name for Ubuntu 22.04
 
       - name: Install Python dependencies
         run: |
@@ -43,12 +42,15 @@ jobs:
           pip install playwright==${{ env.PLAYWRIGHT_VERSION }}
           python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
 
-      - name: Run tests with Xvfb
+      - name: Run tests
+        env:
+          PLAYWRIGHT_HEADLESS: "1"
+          BROWSER_TYPE: "chromium"
+          TEST_TIMEOUT: "120"
         run: |
           mkdir -p reports screenshots
-          xvfb-run --auto-servernum -- python -m run_all
+          python -m run_all
           
-          # Verify reports
           if [ ! -f "test_report.json" ]; then
             echo "❌ Error: No JSON report generated"
             exit 1
@@ -61,11 +63,4 @@ jobs:
 
       - name: Upload artifacts
         if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results-${{ github.run_number }}
-          path: |
-            reports/
-            screenshots/
-            test_report.json
-          retention-days: 7
+        uses: actions/upload-artifact

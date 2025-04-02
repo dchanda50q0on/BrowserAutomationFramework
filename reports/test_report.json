@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-04-02T15:06:00.029650",
+  "timestamp": "2025-04-02T15:21:59.411347",
   "summary": {
     "total": 2,
     "passed": 1,
@@ -8,19 +8,20 @@
   },
   "details": [
     {
-      "test_name": "TestWcbPremium",
+      "test_name": "TestGoogleSearch",
       "status": "passed",
       "result": {
-        "premium_rate": "$2.41",
-        "industry_code": "01602"
+        "search_query": "Python programming",
+        "first_result_title": "Welcome to Python.org",
+        "first_result_url": "https://www.python.org/"
       },
-      "duration": 46.88
+      "duration": 54.55
     },
     {
-      "test_name": "TestGoogleSearch",
+      "test_name": "TestWcbPremium",
       "status": "failed",
       "error": "Test failed: ",
-      "duration": 57.52
+      "duration": 57.68
     }
   ]
 }
