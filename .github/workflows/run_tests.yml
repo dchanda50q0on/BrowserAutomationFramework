@@ -51,6 +51,7 @@ jobs:
           echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
           echo "HEADLESS=true" >> .env
           echo "BROWSER_TYPE=chromium" >> .env
+          echo "GEMINI_MODEL=gemini-1.5-flash" >> .env  # or gemini-pro
 
       - name: Run tests with xvfb
         env:

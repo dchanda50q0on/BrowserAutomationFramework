@@ -1,12 +1,18 @@
 {
-  "timestamp": "2025-04-02T16:40:58.534758",
+  "timestamp": "2025-04-02T16:46:03.252791",
   "summary": {
     "total": 2,
-    "passed": 2,
-    "failed": 0,
-    "pass_rate": 100.0
+    "passed": 1,
+    "failed": 1,
+    "pass_rate": 50.0
   },
   "details": [
+    {
+      "test_name": "TestGoogleSearch",
+      "status": "failed",
+      "error": "Test failed: ",
+      "duration": 37.42
+    },
     {
       "test_name": "TestWcbPremium",
       "status": "passed",
@@ -14,17 +20,7 @@
         "premium_rate": "$2.41",
         "industry_code": "01602"
       },
-      "duration": 53.74
-    },
-    {
-      "test_name": "TestGoogleSearch",
-      "status": "passed",
-      "result": {
-        "search_query": "Python programming",
-        "first_result_title": "Welcome to Python.org",
-        "first_result_url": "https://www.python.org/"
-      },
-      "duration": 50.18
+      "duration": 37.77
     }
   ]
 }
