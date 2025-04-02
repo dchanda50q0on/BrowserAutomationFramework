@@ -76,11 +76,7 @@ class BaseTest(ABC):
             controller=self.controller,
             use_vision=False,
             # Add explicit browser launch options if your Agent class supports them
-            browser_kwargs={
-                    'headless': True,
-                    'args': ['--no-sandbox', '--disable-dev-shm-usage']
-                }
-            )
+           )
 
         try:
             # Start the agent

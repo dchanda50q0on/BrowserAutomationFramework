@@ -37,7 +37,7 @@ jobs:
             libxkbcommon-dev \
             libgtk-3-dev \
             libasound2 \
-            xvfb  # Add xvfb for virtual display
+            xvfb
 
       - name: Install Python dependencies
         run: |
@@ -54,13 +54,16 @@ jobs:
 
       - name: Run tests with xvfb
         env:
+          DISPLAY: ':99'  # Set display for xvfb
           PLAYWRIGHT_HEADLESS: "1"
           BROWSER_TYPE: "chromium"
           TEST_TIMEOUT: "120"
         run: |
           mkdir -p reports screenshots
-          # Run tests with xvfb wrapper
-          xvfb-run python -m run_all
+          # Start xvfb in background
+          Xvfb :99 -screen 0 1280x1024x16 &
+          # Run tests
+          python -m run_all
           
           if [ ! -f "test_report.json" ]; then
             echo "❌ Error: No JSON report generated"
@@ -81,4 +84,3 @@ jobs:
             reports/
             screenshots/
             test_report.json
-          retention-days: 7
