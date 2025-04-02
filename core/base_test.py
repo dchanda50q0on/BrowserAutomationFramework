@@ -71,7 +71,7 @@ class BaseTest(ABC):
             self.get_task(),
             self.llm,
             controller=self.controller,
-            use_vision=True
+            use_vision=False
         )
 
         try:
