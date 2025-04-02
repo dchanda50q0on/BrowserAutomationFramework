@@ -3,8 +3,8 @@
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I opened the browser and navigated to the specified URL",
-          "memory": "I have completed 1 out of 10 steps. Next step is to click on Agriculture",
+          "evaluation_previous_goal": "Success - I opened the browser and navigated to the initial URL.",
+          "memory": "I have successfully opened the browser and navigated to the initial URL. 1 out of 10 steps completed. Next step is to click on Agriculture.",
           "next_goal": "Click on Agriculture"
         },
         "action": [
@@ -38,8 +38,8 @@
         "title": ""
       },
       "metadata": {
-        "step_start_time": 1743628459.907999,
-        "step_end_time": 1743628491.4850304,
+        "step_start_time": 1743629376.7529562,
+        "step_end_time": 1743629401.041655,
         "input_tokens": 1832,
         "step_number": 2
       }
@@ -48,7 +48,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Agriculture",
-          "memory": "I have completed 2 out of 10 steps. Next step is to click on Crop Production",
+          "memory": "Successfully navigated to the initial URL and clicked on Agriculture. 2 out of 10 steps completed. Next step is to click on Crop Production.",
           "next_goal": "Click on Crop Production"
         },
         "action": [
@@ -108,9 +108,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743628491.5373719,
-        "step_end_time": 1743628495.7615154,
-        "input_tokens": 2344,
+        "step_start_time": 1743629401.079066,
+        "step_end_time": 1743629403.6526992,
+        "input_tokens": 2366,
         "step_number": 3
       }
     },
@@ -118,7 +118,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Crop Production",
-          "memory": "I have completed 3 out of 10 steps. Next step is to click on Forage/ Peat Moss Processing - 01602",
+          "memory": "Successfully navigated to the initial URL, clicked on Agriculture and then on Crop Production. 3 out of 10 steps completed. Next step is to click on Forage/ Peat Moss Processing - 01602",
           "next_goal": "Click on Forage/ Peat Moss Processing - 01602"
         },
         "action": [
@@ -179,9 +179,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743628499.0515378,
-        "step_end_time": 1743628502.8668327,
-        "input_tokens": 2466,
+        "step_start_time": 1743629403.7116811,
+        "step_end_time": 1743629406.4776366,
+        "input_tokens": 2509,
         "step_number": 4
       }
     },
@@ -189,7 +189,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Forage/ Peat Moss Processing - 01602",
-          "memory": "I have completed 4 out of 10 steps. Next step is to review the 2025 premium rate",
+          "memory": "Successfully navigated to the initial URL, clicked on Agriculture, Crop Production and then on Forage/ Peat Moss Processing - 01602. 4 out of 10 steps completed. Next step is to review the 2025 premium rate.",
           "next_goal": "Review 2025 Premium Rate"
         },
         "action": [
@@ -249,9 +249,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743628502.934771,
-        "step_end_time": 1743628506.1534393,
-        "input_tokens": 2607,
+        "step_start_time": 1743629406.5278091,
+        "step_end_time": 1743629409.3189447,
+        "input_tokens": 2679,
         "step_number": 5
       }
     },
@@ -259,7 +259,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I reviewed the 2025 premium rate",
-          "memory": "I have completed 5 out of 10 steps. Next step is to close the browser",
+          "memory": "Successfully navigated to the initial URL, clicked on Agriculture, Crop Production, Forage/ Peat Moss Processing - 01602 and reviewed the 2025 premium rate. 5 out of 10 steps completed. Next step is to close the browser.",
           "next_goal": "Close the Browser"
         },
         "action": [
@@ -293,9 +293,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743628506.2306643,
-        "step_end_time": 1743628512.1405213,
-        "input_tokens": 2949,
+        "step_start_time": 1743629409.3590374,
+        "step_end_time": 1743629414.7349288,
+        "input_tokens": 3063,
         "step_number": 6
       }
     },
@@ -303,7 +303,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I closed the browser",
-          "memory": "I have completed all 10 steps. Task is completed successfully",
+          "memory": "Successfully completed all steps of the task. 10 out of 10 steps completed.",
           "next_goal": "Done"
         },
         "action": [
@@ -340,9 +340,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743628512.2059612,
-        "step_end_time": 1743628515.452195,
-        "input_tokens": 8629,
+        "step_start_time": 1743629415.0273075,
+        "step_end_time": 1743629417.4760795,
+        "input_tokens": 8794,
         "step_number": 7
       }
     }

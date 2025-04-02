@@ -12,7 +12,7 @@ class Config:
     TEST_TIMEOUT = int(os.getenv('TEST_TIMEOUT', '60'))  # seconds
 
     # Gemini Configuration
-    GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-1.5-flash')
+    GEMINI_MODEL = os.getenv('GEMINI_MODEL', 'gemini-1.5-pro')
 
     @staticmethod
     def get_screenshot_dir() -> Path:
