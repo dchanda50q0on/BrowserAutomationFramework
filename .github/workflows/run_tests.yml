@@ -4,8 +4,7 @@ on: [push, pull_request]
 
 env:
   PYTHON_VERSION: '3.11'
-  POETRY_VERSION: '1.7.0'  # If using Poetry
-  PLAYWRIGHT_VERSION: '1.42.0'  # Pin Playwright version
+  PLAYWRIGHT_VERSION: '1.42.0'
 
 jobs:
   test:
@@ -19,9 +18,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-          cache: 'pip'  # Enable pip caching
+          cache: 'pip'
 
-      # Cache Playwright browsers
       - name: Cache Playwright browsers
         uses: actions/cache@v3
         id: cache-playwright
@@ -30,29 +28,16 @@ jobs:
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
-      # Cache Python dependencies
-      - name: Cache pip dependencies
-        uses: actions/cache@v3
-        id: cache-pip
-        with:
-          path: |
-            ~/.cache/pip
-            ~/.local/lib/python${{ env.PYTHON_VERSION }}/site-packages
-          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgbm-dev libnss3 libatk1.0-0 libatk-bridge2.0-0
-          sudo apt-get install -y libdrm-dev libxkbcommon-dev libgtk-3-dev libasound2
+          sudo apt-get install -y libgbm-dev libnss3 libatk1.0-0t64 libatk-bridge2.0-0t64
+          sudo apt-get install -y libdrm-dev libxkbcommon-dev libgtk-3-dev libasound2t64
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          # Only install Playwright if not cached
           if [ "${{ steps.cache-playwright.outputs.cache-hit }}" != 'true' ]; then
             npx playwright install --with-deps ${{ env.PLAYWRIGHT_VERSION }}
           fi
@@ -62,12 +47,10 @@ jobs:
           HEADLESS: "true"
           BROWSER_TYPE: "chromium"
           TEST_TIMEOUT: "120"
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ steps.cache-playwright.outputs.cache-hit == 'true' }}
         run: |
           mkdir -p reports screenshots
           python -m run_all
           
-          # Verify reports were generated
           if [ ! -f "test_report.json" ]; then
             echo "❌ Error: No JSON report generated"
             exit 1
@@ -78,8 +61,6 @@ jobs:
             exit 1
           fi
 
-          # Show test summary
-          echo "=== Test Summary ==="
           jq '.summary' test_report.json || cat test_report.json
 
       - name: Upload artifacts
