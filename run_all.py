@@ -1,39 +1,25 @@
 import asyncio
+import sys
 from core.test_runner import TestRunner
 from core.test_discover import discover_tests
-import sys
-from pathlib import Path
-from core.report_generator import TestReport
-from core.test_runner import TestRunner
-from core.report_generator import TestReport
-
-# Add project root to path (works everywhere)
-sys.path.append(str(Path(__file__).parent))
 
 
-
-
-async def run_all_tests():
+async def main():
     test_classes = discover_tests()
 
     if not test_classes:
-        print("❌ No tests found! Check:")
-        print("1. Files must be named 'test_*.py'")
-        print("2. Classes must inherit from BaseTest")
-        print("3. All test directories need __init__.py")
-        return
+        print("❌ No tests found!")
+        return False
 
     print(f"🚀 Found {len(test_classes)} tests:")
     for test_class in test_classes:
-        print(f"- {test_class.__name__} ({test_class.__module__})")
+        print(f"- {test_class.__name__}")
 
-    test_runner = TestRunner(max_workers=3)
-    await test_runner.run_tests_parallel(test_classes)
+    runner = TestRunner(max_workers=3)
+    success = await runner.run_tests_parallel(test_classes)
+    return success
 
-# Create and use the reporter
-    reporter = TestReport()
-# ... run tests ...
-    reporter.generate_report('all')  # Make sure this is called
 
 if __name__ == "__main__":
-    asyncio.run(run_all_tests())
+    exit_code = 0 if asyncio.run(main()) else 1
+    sys.exit(exit_code)

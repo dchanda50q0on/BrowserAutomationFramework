@@ -2,9 +2,15 @@ name: Browser Automation Tests
 
 on: [push, pull_request]
 
+env:
+  PYTHON_VERSION: '3.11'
+  POETRY_VERSION: '1.7.0'  # If using Poetry
+  PLAYWRIGHT_VERSION: '1.42.0'  # Pin Playwright version
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v4
@@ -12,42 +18,77 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'  # Enable pip caching
 
-      - name: Install dependencies
+      # Cache Playwright browsers
+      - name: Cache Playwright browsers
+        uses: actions/cache@v3
+        id: cache-playwright
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+      # Cache Python dependencies
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        id: cache-pip
+        with:
+          path: |
+            ~/.cache/pip
+            ~/.local/lib/python${{ env.PYTHON_VERSION }}/site-packages
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libgbm-dev libnss3 libatk1.0-0 libatk-bridge2.0-0
+          sudo apt-get install -y libdrm-dev libxkbcommon-dev libgtk-3-dev libasound2
+
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install 'pydantic>=2.10.4,<2.11.0'
-          pip install langchain-google-genai
           pip install -r requirements.txt
-          playwright install
-          playwright install-deps
+          # Only install Playwright if not cached
+          if [ "${{ steps.cache-playwright.outputs.cache-hit }}" != 'true' ]; then
+            npx playwright install --with-deps ${{ env.PLAYWRIGHT_VERSION }}
+          fi
 
-      - name: Run tests and generate reports
+      - name: Run tests
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HEADLESS: "true"
+          BROWSER_TYPE: "chromium"
+          TEST_TIMEOUT: "120"
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: ${{ steps.cache-playwright.outputs.cache-hit == 'true' }}
         run: |
-          # Clean and setup
-          rm -rf reports/*
           mkdir -p reports screenshots
-          
-          # Run tests - this should create both reports
           python -m run_all
           
-          # Simple verification
-          echo "Checking reports:"
-          ls -la reports/ || echo "No reports directory"
-          [ -f "test_report.json" ] && echo "JSON report exists" || echo "No JSON report"
-          [ -f "reports/report.html" ] && echo "HTML report exists" || echo "No HTML report"
+          # Verify reports were generated
+          if [ ! -f "test_report.json" ]; then
+            echo "❌ Error: No JSON report generated"
+            exit 1
+          fi
+          
+          if [ -z "$(ls reports/*.html)" ]; then
+            echo "❌ Error: No HTML report generated"
+            exit 1
+          fi
 
-      - name: Upload test results
+          # Show test summary
+          echo "=== Test Summary ==="
+          jq '.summary' test_report.json || cat test_report.json
+
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: test-results-${{ github.run_number }}
           path: |
             reports/
             screenshots/
             test_report.json
-          retention-days: 3
+          retention-days: 7

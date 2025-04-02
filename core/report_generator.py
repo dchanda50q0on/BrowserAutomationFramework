@@ -1,8 +1,10 @@
-from datetime import datetime
-from typing import List, Dict, Any, Optional
 import json
 import time
-from .html_reporter import HTMLReporter
+from datetime import datetime
+from typing import Any, Dict
+from core.html_reporter import HTMLReporter
+from core.config import Config
+from pydantic import BaseModel
 
 
 class TestReport:
@@ -29,10 +31,14 @@ class TestReport:
         duration = self.stop_timer(test_name)
         self.results['summary']['total'] += 1
         self.results['summary']['passed'] += 1
+
+        # Convert Pydantic model to dict if needed
+        result_data = result.dict() if isinstance(result, BaseModel) else result
+
         self.results['details'].append({
             'test_name': test_name,
             'status': 'passed',
-            'result': result.dict() if hasattr(result, 'dict') else str(result),
+            'result': result_data,
             'duration': round(duration, 2)
         })
 
@@ -47,28 +53,38 @@ class TestReport:
             'duration': round(duration, 2)
         })
 
-
-    def generate_report(self, format: str = 'all'):
-        # Ensure we have at least one test
+    def generate_report(self, format: str = 'all') -> dict:
         if self.results['summary']['total'] == 0:
-            self.results['summary'] = {'total': 0, 'passed': 0, 'failed': 0}
             print("⚠️ No test results to report")
             return self.results
 
-        # Safe division for pass rate
+        # Calculate pass rate
         total = self.results['summary']['total']
         passed = self.results['summary']['passed']
-        self.results['summary']['pass_rate'] = (passed / total * 100) if total > 0 else 0
+        self.results['summary']['pass_rate'] = round((passed / total * 100), 2) if total > 0 else 0
 
+        # Generate reports
         if format in ('json', 'all'):
-            with open('test_report.json', 'w') as f:
-                json.dump(self.results, f, indent=2)
+            report_path = Config.get_report_dir() / 'test_report.json'
+            try:
+                with open(report_path, 'w') as f:
+                    json.dump(self.results, f, indent=2, default=self._json_serializer)
+            except Exception as e:
+                print(f"❌ Failed to generate JSON report: {str(e)}")
 
         if format in ('html', 'all'):
             try:
-                html_report_path = self.html_reporter.generate_html_report(self.results)
-                print(f"📊 HTML report generated: {html_report_path}")
+                html_path = self.html_reporter.generate_html_report(self.results)
+                print(f"📊 HTML report generated: {html_path}")
             except Exception as e:
                 print(f"❌ Failed to generate HTML report: {str(e)}")
 
         return self.results
+
+    def _json_serializer(self, obj):
+        """Custom JSON serializer for objects"""
+        if isinstance(obj, BaseModel):
+            return obj.dict()
+        if hasattr(obj, 'isoformat'):  # Handle datetime objects
+            return obj.isoformat()
+        raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")

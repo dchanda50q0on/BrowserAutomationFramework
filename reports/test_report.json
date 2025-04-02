@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-04-02T14:45:39.075486",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestWcbPremium",
+      "status": "passed",
+      "result": {
+        "premium_rate": "$2.41",
+        "industry_code": "01602"
+      },
+      "duration": 60.05
+    },
+    {
+      "test_name": "TestGoogleSearch",
+      "status": "passed",
+      "result": {
+        "search_query": "Python programming",
+        "first_result_title": "Welcome to Python.org",
+        "first_result_url": "https://www.python.org/"
+      },
+      "duration": 61.15
+    }
+  ]
+}
