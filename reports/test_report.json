@@ -1,18 +1,12 @@
 {
-  "timestamp": "2025-04-02T16:46:03.252791",
+  "timestamp": "2025-04-02T17:14:19.296095",
   "summary": {
     "total": 2,
-    "passed": 1,
-    "failed": 1,
-    "pass_rate": 50.0
+    "passed": 2,
+    "failed": 0,
+    "pass_rate": 100.0
   },
   "details": [
-    {
-      "test_name": "TestGoogleSearch",
-      "status": "failed",
-      "error": "Test failed: ",
-      "duration": 37.42
-    },
     {
       "test_name": "TestWcbPremium",
       "status": "passed",
@@ -20,7 +14,17 @@
         "premium_rate": "$2.41",
         "industry_code": "01602"
       },
-      "duration": 37.77
+      "duration": 60.24
+    },
+    {
+      "test_name": "TestGoogleSearch",
+      "status": "passed",
+      "result": {
+        "search_query": "Python programming",
+        "first_result_title": "Python programming - Google Search",
+        "first_result_url": "https://www.google.com/search?q=Python+programming&sca_esv=aff5b07d3c99793e&source=hp&ei=yqjtZ8CyCO_y0PEPv8f78A4&iflsig=ACkRmUkAAAAAZ-222mcmfBtHoXWoJMJJakogn6t-wtrN&ved=0ahUKEwjAv5mmorqMAxVvOTQIHb_jHu4Q4dUDCBA&oq=Python+programming&gs_lp=Egdnd3Mtd2l6IhJQeXRob24gcHJvZ3JhbW1pbmcyCBAAGIAEGLEDMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgAQyBRAAGIAESL0YUABYAHAAeACQAQCYAeoCoAHqAqoBAzMtMbgBDMgBAPgBAZgCAaAC-QKYAwCSBwMzLTGgB7UFsgcDMy0xuAf5Ag&sclient=gws-wiz&sei=2qjtZ7KAIr670PEPmJiPoAE"
+      },
+      "duration": 165.17
     }
   ]
 }

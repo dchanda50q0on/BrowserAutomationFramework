@@ -1,5 +1,5 @@
 browser-use==0.1.39  # Version that works with pydantic 2.10.x
-pydantic>=2.10.4,<2.11.0
+pydantic~=2.11.1
 playwright>=1.42.0
 python-dotenv>=1.0.1
 pyyaml
@@ -7,3 +7,4 @@ Jinja2~=3.1.6
 pytest~=8.3.5
 openai~=1.70.0
 langchain-google-genai>=0.1.0
+
