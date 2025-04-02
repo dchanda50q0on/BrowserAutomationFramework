@@ -1,6 +1,6 @@
 browser-use==0.1.39  # Version that works with pydantic 2.10.x
 pydantic>=2.10.4,<2.11.0
-playwright>=1.49.0
+playwright>=1.42.0
 python-dotenv>=1.0.1
 pyyaml
 Jinja2~=3.1.6
