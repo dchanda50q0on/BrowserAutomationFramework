@@ -67,12 +67,20 @@ class BaseTest(ABC):
         # Force headless mode through environment variable
         os.environ["PLAYWRIGHT_HEADLESS"] = "1"
 
+        # Also set browser type if not already set
+        os.environ["BROWSER_TYPE"] = os.getenv("BROWSER_TYPE", "chromium")
+
         agent = Agent(
             self.get_task(),
             self.llm,
             controller=self.controller,
-            use_vision=False
-        )
+            use_vision=False,
+            # Add explicit browser launch options if your Agent class supports them
+            browser_kwargs={
+                    'headless': True,
+                    'args': ['--no-sandbox', '--disable-dev-shm-usage']
+                }
+            )
 
         try:
             # Start the agent
