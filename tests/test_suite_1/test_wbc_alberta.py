@@ -3,7 +3,8 @@ from pydantic import BaseModel
 
 
 class WcbPremiumResult(BaseModel):
-    premium: str
+    premium_rate: str
+    industry_code:str
 
 
 
@@ -11,11 +12,11 @@ class WcbPremiumResult(BaseModel):
 class TestWcbPremium(BaseTest):
     def get_task(self) -> str:
         return (
-            'Open browser and launch https://rm.wcb.ab.ca/WCB.RateManual.WebServer/'
+            'Open browser and launch https://rm.wcb.ab.ca/WCB.RateManual.WebServer'
             'Click Agriculture'
             'Click Crop Production'
             'Click Forage/ Peat Moss Processing - 01602'
-            'Capture 2025 Premium Rate'
+            'Review 2025 Premium Rate'
             'Close the Browser'
         )
 
@@ -23,4 +24,5 @@ class TestWcbPremium(BaseTest):
         return WcbPremiumResult
 
     def validate_results(self, result: WcbPremiumResult):
-        assert '$2.41' in result.premium
+        assert '$2.41' in result.premium_rate
+        assert '01602' in result.industry_code

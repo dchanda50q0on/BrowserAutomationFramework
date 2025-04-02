@@ -47,6 +47,7 @@ class TestReport:
             'duration': round(duration, 2)
         })
 
+
     def generate_report(self, format: str = 'all'):
         # Ensure we have at least one test
         if self.results['summary']['total'] == 0:
@@ -69,7 +70,5 @@ class TestReport:
                 print(f"📊 HTML report generated: {html_report_path}")
             except Exception as e:
                 print(f"❌ Failed to generate HTML report: {str(e)}")
-
-
 
         return self.results

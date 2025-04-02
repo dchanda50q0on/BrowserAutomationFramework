@@ -32,21 +32,4 @@ class TestRunner:
     async def run_tests_parallel(self, test_classes: List[Type[BaseTest]], report_format: str = 'all'):
         tasks = [self._run_test_in_thread(test_class) for test_class in test_classes]
         await asyncio.gather(*tasks, return_exceptions=True)
-
-        async def run_tests_parallel(self, test_classes: List[Type[BaseTest]]):
-            if not test_classes:
-                print("⚠️ No test classes provided to runner")
-                self.report.results['summary'] = {'total': 0, 'passed': 0, 'failed': 0}
-                return self.report.generate_report()
-
-            tasks = [self._run_test_in_thread(test_class) for test_class in test_classes]
-            await asyncio.gather(*tasks, return_exceptions=True)
-
-            # Ensure we always have summary data
-            if 'summary' not in self.report.results:
-                self.report.results['summary'] = {
-                    'total': len(test_classes),
-                    'passed': 0,
-                    'failed': len(test_classes)
-                }
         return self.report.generate_report(report_format)

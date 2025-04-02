@@ -12,7 +12,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11'  # Match your local Python version
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -23,38 +23,23 @@ jobs:
           playwright install
           playwright install-deps
 
-      - name: Verify environment
-        run: |
-          python --version
-          playwright --version
-          echo "Python path:"
-          python -c "import sys; print('\n'.join(sys.path))"
-
-      - name: Run tests
+      - name: Run tests and generate reports
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           HEADLESS: "true"
         run: |
-          # Create necessary directories
-          mkdir -p reports
-          mkdir -p screenshots
+          # Clean and setup
+          rm -rf reports/*
+          mkdir -p reports screenshots
           
-          # Debug: Show directory structure
-          echo "Current directory: $(pwd)"
-          echo "Directory contents:"
-          ls -R
-          
-          # Execute tests using your existing command
+          # Run tests - this should create both reports
           python -m run_all
           
-          # Verify test report was created
-          if [ -f "test_report.json" ]; then
-            echo "Test report exists:"
-            cat test_report.json
-          else
-            echo "No test report found, creating empty one"
-            echo '{"summary": {"total": 0, "passed": 0, "failed": 0}}' > test_report.json
-          fi
+          # Simple verification
+          echo "Checking reports:"
+          ls -la reports/ || echo "No reports directory"
+          [ -f "test_report.json" ] && echo "JSON report exists" || echo "No JSON report"
+          [ -f "reports/report.html" ] && echo "HTML report exists" || echo "No HTML report"
 
       - name: Upload test results
         if: always()

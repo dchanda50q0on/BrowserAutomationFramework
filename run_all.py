@@ -3,6 +3,9 @@ from core.test_runner import TestRunner
 from core.test_discover import discover_tests
 import sys
 from pathlib import Path
+from core.report_generator import TestReport
+from core.test_runner import TestRunner
+from core.report_generator import TestReport
 
 # Add project root to path (works everywhere)
 sys.path.append(str(Path(__file__).parent))
@@ -27,6 +30,10 @@ async def run_all_tests():
     test_runner = TestRunner(max_workers=3)
     await test_runner.run_tests_parallel(test_classes)
 
+# Create and use the reporter
+    reporter = TestReport()
+# ... run tests ...
+    reporter.generate_report('all')  # Make sure this is called
 
 if __name__ == "__main__":
     asyncio.run(run_all_tests())
