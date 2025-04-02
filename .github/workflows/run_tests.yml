@@ -4,11 +4,13 @@ on: [push, pull_request]
 
 env:
   PYTHON_VERSION: '3.11'
-  PLAYWRIGHT_VERSION: '1.42.0'  # Match this with your requirements.txt
+  PLAYWRIGHT_VERSION: '1.42.0'
+  BROWSER_TYPE: 'chromium'
+  HEADLESS: 'true'  # Force headless mode
 
 jobs:
   test:
-    runs-on: ubuntu-22.04  # Using stable LTS version
+    runs-on: ubuntu-22.04
     timeout-minutes: 30
 
     steps:
@@ -26,35 +28,37 @@ jobs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('requirements.txt') }}
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgbm-dev libnss3 libatk1.0-0 libatk-bridge2.0-0
-          sudo apt-get install -y libdrm-dev libxkbcommon-dev libgtk-3-dev libasound2
+          sudo apt-get install -y \
+            libgbm-dev \
+            libnss3 \
+            libatk1.0-0 \
+            libatk-bridge2.0-0 \
+            libdrm-dev \
+            libxkbcommon-dev \
+            libgtk-3-dev \
+            libasound2 \
+            xvfb  # Add X virtual framebuffer
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install -r requirements.txt
-          
-          # Install specific Playwright version through pip
           pip install playwright==${{ env.PLAYWRIGHT_VERSION }}
           
-          # Only install browsers if not cached
           if [ "${{ steps.cache-playwright.outputs.cache-hit }}" != 'true' ]; then
-            python -m playwright install --with-deps chromium
+            python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
           fi
 
-      - name: Run tests
-        env:
-          HEADLESS: "true"
-          BROWSER_TYPE: "chromium"
-          TEST_TIMEOUT: "120"
+      - name: Run tests with Xvfb
         run: |
           mkdir -p reports screenshots
-          python -m run_all
+          # Start virtual display and run tests
+          xvfb-run --auto-servernum -- python -m run_all
           
           # Verify reports
           if [ ! -f "test_report.json" ]; then
