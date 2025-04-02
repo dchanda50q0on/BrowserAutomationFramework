@@ -1,33 +1,37 @@
 {
-  "timestamp": "2025-04-01T21:45:41.376098",
+  "timestamp": "2025-04-02T07:38:14.983107",
   "summary": {
-    "total": 2,
-    "passed": 2,
-    "failed": 0,
-    "pass_rate": 100.0
+    "total": 3,
+    "passed": 1,
+    "failed": 2,
+    "pass_rate": 33.33333333333333
   },
   "details": [
     {
+      "test_name": "TestGoogleSearch",
+      "status": "failed",
+      "error": "",
+      "duration": 42.53
+    },
+    {
       "test_name": "TestWcbPremium",
-      "status": "passed",
-      "result": {
-        "premium": "$2.41"
-      },
-      "duration": 62.4
+      "status": "failed",
+      "error": "",
+      "duration": 87.4
     },
     {
       "test_name": "TestAccentureCareers",
       "status": "passed",
       "result": {
-        "search": "Accenture Canada",
-        "click": "0",
-        "tab": "0",
-        "chat": "Successfully opened google.com, searched for Accenture Canada, clicked the first link, clicked on the Careers Tab, clicked Search Jobs, got the URL and title of the page, searched for Curan Tech Lead role. The URL is https://www.accenture.com/ca-en/careers/jobsearch and the title is Search Jobs at Accenture.  I then closed the browser.",
-        "close": "1",
-        "url": "https://www.accenture.com/ca-en/careers/jobsearch",
+        "search": "Searched for Accenture Canada and Curan Tech Lead role.",
+        "click": "Clicked on the first link, Careers Tab, Search Jobs button, and Search button.",
+        "tab": "Switched to the first tab.",
+        "chat": "Successfully opened google.com, searched for Accenture Canada, clicked on the first link, clicked on the Careers Tab, clicked Search Jobs, got the URL and title of the page, searched for Curan Tech Lead role, and closed the browser. The URL is https://www.accenture.com/ca-en/careers/jobsearch?jk=&sb=1&vw=0&is_rj=0&pg=1 and the title is Search Jobs at Accenture. ",
+        "close": "Closed the browser.",
+        "url": "https://www.accenture.com/ca-en/careers/jobsearch?jk=&sb=1&vw=0&is_rj=0&pg=1",
         "title": "Search Jobs at Accenture"
       },
-      "duration": 84.14
+      "duration": 96.98
     }
   ]
 }
