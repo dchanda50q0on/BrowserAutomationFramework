@@ -4,8 +4,8 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Unknown",
-          "memory": "I have opened the browser and navigated to the specified URL. I need to click through the menu to find the relevant premium rate.",
-          "next_goal": "Click on Agriculture"
+          "memory": "I have opened the browser and I'm ready to start the task. 0 out of 10 steps completed. I need to navigate to the specified URL and then click through the different sections.",
+          "next_goal": "Navigate to the specified URL"
         },
         "action": [
           {
@@ -38,8 +38,8 @@
         "title": ""
       },
       "metadata": {
-        "step_start_time": 1743619539.3340843,
-        "step_end_time": 1743619554.006896,
+        "step_start_time": 1743620760.5054362,
+        "step_end_time": 1743620787.5485513,
         "input_tokens": 2632,
         "step_number": 2
       }
@@ -47,9 +47,9 @@
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I clicked on Agriculture",
-          "memory": "I have opened the browser and navigated to the specified URL. I clicked on Agriculture. I need to click through the menu to find the relevant premium rate.",
-          "next_goal": "Click on Crop Production"
+          "evaluation_previous_goal": "Success - I navigated to the correct URL",
+          "memory": "I have successfully navigated to the URL and I'm ready to click on the Agriculture section. 1 out of 10 steps completed.",
+          "next_goal": "Click on Agriculture"
         },
         "action": [
           {
@@ -108,18 +108,18 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743619554.0480692,
-        "step_end_time": 1743619557.0652735,
-        "input_tokens": 3144,
+        "step_start_time": 1743620787.5921767,
+        "step_end_time": 1743620790.7369394,
+        "input_tokens": 3162,
         "step_number": 3
       }
     },
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I clicked on Crop Production",
-          "memory": "I have opened the browser and navigated to the specified URL. I clicked on Agriculture and then on Crop Production. I need to click through the menu to find the relevant premium rate.",
-          "next_goal": "Click on Forage/ Peat Moss Processing - 01602"
+          "evaluation_previous_goal": "Success - I clicked on Agriculture",
+          "memory": "I have successfully clicked on Agriculture and I'm ready to click on Crop Production. 2 out of 10 steps completed.",
+          "next_goal": "Click on Crop Production"
         },
         "action": [
           {
@@ -179,18 +179,18 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743619557.1174462,
-        "step_end_time": 1743619560.1241724,
-        "input_tokens": 3292,
+        "step_start_time": 1743620790.8614588,
+        "step_end_time": 1743620793.6135516,
+        "input_tokens": 3299,
         "step_number": 4
       }
     },
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I clicked on Forage/ Peat Moss Processing - 01602",
-          "memory": "I have opened the browser and navigated to the specified URL. I clicked on Agriculture, Crop Production and then on Forage/ Peat Moss Processing - 01602. I need to extract the premium rate.",
-          "next_goal": "Extract premium rate for 2025"
+          "evaluation_previous_goal": "Success - I clicked on Crop Production",
+          "memory": "I have successfully clicked on Crop Production and I'm ready to click on Forage/ Peat Moss Processing - 01602. 3 out of 10 steps completed.",
+          "next_goal": "Click on Forage/ Peat Moss Processing - 01602"
         },
         "action": [
           {
@@ -249,23 +249,23 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743619560.1789541,
-        "step_end_time": 1743619563.3971667,
-        "input_tokens": 3461,
+        "step_start_time": 1743620795.9295733,
+        "step_end_time": 1743620798.861231,
+        "input_tokens": 3437,
         "step_number": 5
       }
     },
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I found the premium rate",
-          "memory": "I have opened the browser and navigated to the specified URL. I clicked on Agriculture, Crop Production and then on Forage/ Peat Moss Processing - 01602. I extracted the premium rate for 2025 which is $2.41. I need to close the browser.",
-          "next_goal": "Close the browser"
+          "evaluation_previous_goal": "Success - I clicked on Forage/ Peat Moss Processing - 01602",
+          "memory": "I have successfully clicked on Forage/ Peat Moss Processing - 01602 and I'm ready to extract the premium rate. 4 out of 10 steps completed.",
+          "next_goal": "Extract 2025 premium rate"
         },
         "action": [
           {
             "extract_content": {
-              "goal": "extract the premium rate for 2025"
+              "goal": "extract the 2025 premium rate"
             }
           }
         ]
@@ -273,7 +273,7 @@
       "result": [
         {
           "is_done": false,
-          "extracted_content": "\ud83d\udcc4  Extracted from page\n: ```json\n{\n  \"premium_rates_2025\": {\n    \"Forage/Peat Moss Processing\": {\n      \"industry_code\": \"01602\",\n      \"rate\": \"$2.41\"\n    }\n  }\n}\n```\n",
+          "extracted_content": "\ud83d\udcc4  Extracted from page\n: ```json\n{\n  \"2025 Premium Rates\": [\n    {\n      \"industry\": \"Forage/Peat Moss Processing\",\n      \"industryCode\": \"01602\",\n      \"rate\": \"$2.41\"\n    }\n  ]\n}\n```\n",
           "include_in_memory": true
         }
       ],
@@ -293,18 +293,18 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743619563.4449835,
-        "step_end_time": 1743619567.9223187,
-        "input_tokens": 3841,
+        "step_start_time": 1743620798.9134376,
+        "step_end_time": 1743620803.263396,
+        "input_tokens": 3799,
         "step_number": 6
       }
     },
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I closed the browser",
-          "memory": "I have completed the task successfully. I opened the browser, navigated to the specified URL, clicked through the menu to find the relevant premium rate, extracted the premium rate for 2025, and closed the browser.",
-          "next_goal": "Task completed"
+          "evaluation_previous_goal": "Success - I extracted the premium rate",
+          "memory": "I have successfully extracted the premium rate. 5 out of 10 steps completed. Closing the browser now.",
+          "next_goal": "Close the browser"
         },
         "action": [
           {
@@ -340,9 +340,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743619567.9750571,
-        "step_end_time": 1743619598.4661248,
-        "input_tokens": 4074,
+        "step_start_time": 1743620803.3260474,
+        "step_end_time": 1743620806.2265222,
+        "input_tokens": 4014,
         "step_number": 7
       }
     }

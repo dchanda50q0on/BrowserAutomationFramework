@@ -59,16 +59,13 @@ class BaseTest(ABC):
     async def run(self):
         """Execute the test using browser-use agent"""
         # Configure browser launch options through environment variables
-        os.environ["BROWSER_HEADLESS"] = str(Config.HEADLESS).lower()
-        os.environ["BROWSER_TYPE"] = Config.BROWSER_TYPE
-        os.environ["BROWSER_TIMEOUT"] = str(Config.TEST_TIMEOUT * 1000)
+        os.environ["PLAYWRIGHT_HEADLESS"] = str(Config.HEADLESS).lower()
 
         agent = Agent(
             self.get_task(),
             self.llm,
             controller=self.controller,
-            use_vision=True,
-            headless = True  # Explicitly set headless
+            use_vision=True
         )
 
         try:

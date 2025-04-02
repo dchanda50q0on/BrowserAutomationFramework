@@ -1,10 +1,10 @@
 {
-  "timestamp": "2025-04-02T14:45:39.075486",
+  "timestamp": "2025-04-02T15:06:00.029650",
   "summary": {
     "total": 2,
-    "passed": 2,
-    "failed": 0,
-    "pass_rate": 100.0
+    "passed": 1,
+    "failed": 1,
+    "pass_rate": 50.0
   },
   "details": [
     {
@@ -14,17 +14,13 @@
         "premium_rate": "$2.41",
         "industry_code": "01602"
       },
-      "duration": 60.05
+      "duration": 46.88
     },
     {
       "test_name": "TestGoogleSearch",
-      "status": "passed",
-      "result": {
-        "search_query": "Python programming",
-        "first_result_title": "Welcome to Python.org",
-        "first_result_url": "https://www.python.org/"
-      },
-      "duration": 61.15
+      "status": "failed",
+      "error": "Test failed: ",
+      "duration": 57.52
     }
   ]
 }

@@ -6,7 +6,7 @@ env:
   PYTHON_VERSION: '3.11'
   PLAYWRIGHT_VERSION: '1.42.0'
   BROWSER_TYPE: 'chromium'
-  HEADLESS: 'true'  # Force headless mode
+  PLAYWRIGHT_HEADLESS: '1'  # Force headless mode through environment variable
 
 jobs:
   test:
@@ -41,8 +41,7 @@ jobs:
             libdrm-dev \
             libxkbcommon-dev \
             libgtk-3-dev \
-            libasound2 \
-            xvfb  # Add X virtual framebuffer
+            libasound2
 
       - name: Install Python dependencies
         run: |
@@ -54,13 +53,15 @@ jobs:
             python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
           fi
 
-      - name: Run tests with Xvfb
+      - name: Run tests
+        env:
+          PLAYWRIGHT_HEADLESS: "1"  # Force headless mode
+          BROWSER_TYPE: "chromium"
+          TEST_TIMEOUT: "120"
         run: |
           mkdir -p reports screenshots
-          # Start virtual display and run tests
-          xvfb-run --auto-servernum -- python -m run_all
+          python -m run_all
           
-          # Verify reports
           if [ ! -f "test_report.json" ]; then
             echo "❌ Error: No JSON report generated"
             exit 1
