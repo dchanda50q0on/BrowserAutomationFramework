@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required to access .env file
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -43,12 +45,17 @@ jobs:
           pip install playwright==${{ env.PLAYWRIGHT_VERSION }}
           python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
 
+      - name: Load .env file
+        run: |
+          echo "GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}" >> .env
+          echo "HEADLESS=true" >> .env
+          echo "BROWSER_TYPE=chromium" >> .env
+
       - name: Run tests
         env:
           PLAYWRIGHT_HEADLESS: "1"
           BROWSER_TYPE: "chromium"
           TEST_TIMEOUT: "120"
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
           mkdir -p reports screenshots
           python -m run_all
