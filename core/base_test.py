@@ -58,8 +58,8 @@ class BaseTest(ABC):
 
     async def run(self):
         """Execute the test using browser-use agent"""
-        # Configure browser launch options through environment variables
-        os.environ["PLAYWRIGHT_HEADLESS"] = str(Config.HEADLESS).lower()
+        # Force headless mode through environment variable
+        os.environ["PLAYWRIGHT_HEADLESS"] = "1"
 
         agent = Agent(
             self.get_task(),
@@ -69,6 +69,13 @@ class BaseTest(ABC):
         )
 
         try:
+            # Start the agent and get the browser context
+            await agent.start()
+
+            # Ensure headless mode is properly set
+            if hasattr(agent, 'browser'):
+                await agent.browser.start(headless=True)
+
             history = await agent.run()
             history.save_to_file(f'history_{self.__class__.__name__}.json')
             test_result = history.final_result()

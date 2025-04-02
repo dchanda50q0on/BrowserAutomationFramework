@@ -6,11 +6,11 @@ env:
   PYTHON_VERSION: '3.11'
   PLAYWRIGHT_VERSION: '1.42.0'
   BROWSER_TYPE: 'chromium'
-  PLAYWRIGHT_HEADLESS: '1'  # Force headless mode through environment variable
+  PLAYWRIGHT_HEADLESS: '1'
 
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     timeout-minutes: 30
 
     steps:
@@ -21,14 +21,6 @@ jobs:
         with:
           python-version: ${{ env.PYTHON_VERSION }}
           cache: 'pip'
-
-      - name: Cache Playwright browsers
-        uses: actions/cache@v3
-        id: cache-playwright
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
       - name: Install system dependencies
         run: |
@@ -41,27 +33,22 @@ jobs:
             libdrm-dev \
             libxkbcommon-dev \
             libgtk-3-dev \
-            libasound2
+            libasound2 \
+            xvfb
 
       - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install playwright==${{ env.PLAYWRIGHT_VERSION }}
-          
-          if [ "${{ steps.cache-playwright.outputs.cache-hit }}" != 'true' ]; then
-            python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
-          fi
+          python -m playwright install --with-deps ${{ env.BROWSER_TYPE }}
 
-      - name: Run tests
-        env:
-          PLAYWRIGHT_HEADLESS: "1"  # Force headless mode
-          BROWSER_TYPE: "chromium"
-          TEST_TIMEOUT: "120"
+      - name: Run tests with Xvfb
         run: |
           mkdir -p reports screenshots
-          python -m run_all
+          xvfb-run --auto-servernum -- python -m run_all
           
+          # Verify reports
           if [ ! -f "test_report.json" ]; then
             echo "❌ Error: No JSON report generated"
             exit 1
@@ -71,9 +58,6 @@ jobs:
             echo "❌ Error: No HTML report generated"
             exit 1
           fi
-
-          echo "=== Test Summary ==="
-          jq '.summary' test_report.json || cat test_report.json
 
       - name: Upload artifacts
         if: always()
