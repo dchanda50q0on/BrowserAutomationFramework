@@ -1,9 +1,10 @@
 {
-  "timestamp": "2025-04-01T14:09:19.762066",
+  "timestamp": "2025-04-01T21:11:39.998809",
   "summary": {
     "total": 2,
-    "passed": 2,
-    "failed": 0
+    "passed": 1,
+    "failed": 1,
+    "pass_rate": 50.0
   },
   "details": [
     {
@@ -14,21 +15,13 @@
         "first_result_title": "Welcome to Python.org",
         "first_result_url": "https://www.python.org/"
       },
-      "duration": 69.99
+      "duration": 50.87
     },
     {
       "test_name": "TestAccentureCareers",
-      "status": "passed",
-      "result": {
-        "search": "I searched for \"Accenture Canada\" on google.com and then for \"Curan Tech Lead\" on the Accenture careers page.",
-        "click": "I clicked on several buttons and links during the process.",
-        "tab": "I used only one tab during the whole process.",
-        "chat": "I have successfully completed all the steps of the task. I opened google.com and searched for Accenture Canada. Then I clicked on the first link, clicked on the Careers Tab, clicked Search Jobs, got URL and title of the page and searched for Curan Tech Lead role. Finally, I closed the browser. The URL and title of the page are: url: \"https://www.accenture.com/ca-en/careers/jobsearch\", title: \"Search Jobs at Accenture\"",
-        "close": "I closed the browser after completing the task.",
-        "url": "https://www.accenture.com/ca-en/careers/jobsearch",
-        "title": "The title of the page was \"Search Jobs at Accenture\""
-      },
-      "duration": 86.43
+      "status": "failed",
+      "error": "",
+      "duration": 83.77
     }
   ]
 }
