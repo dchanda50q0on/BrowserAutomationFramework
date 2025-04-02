@@ -33,6 +33,7 @@ class BaseTest(ABC):
             api_key=SecretStr(os.environ["GEMINI_API_KEY"])
         )
 
+
     @abstractmethod
     def get_task(self) -> str:
         """Define the task instructions for the agent"""
