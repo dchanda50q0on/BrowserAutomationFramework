@@ -3,8 +3,8 @@
     {
       "model_output": {
         "current_state": {
-          "evaluation_previous_goal": "Success - I opened the browser and navigated to the initial URL.",
-          "memory": "I have successfully opened the browser and navigated to the initial URL. 1 out of 10 steps completed. Next step is to click on Agriculture.",
+          "evaluation_previous_goal": "Success - I opened the browser and navigated to the initial URL",
+          "memory": "I have opened the browser and navigated to the given URL. 1 out of 10 steps completed. Next step is to click on Agriculture.",
           "next_goal": "Click on Agriculture"
         },
         "action": [
@@ -38,8 +38,8 @@
         "title": ""
       },
       "metadata": {
-        "step_start_time": 1743629376.7529562,
-        "step_end_time": 1743629401.041655,
+        "step_start_time": 1743677790.9559484,
+        "step_end_time": 1743677812.7624428,
         "input_tokens": 1832,
         "step_number": 2
       }
@@ -48,7 +48,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Agriculture",
-          "memory": "Successfully navigated to the initial URL and clicked on Agriculture. 2 out of 10 steps completed. Next step is to click on Crop Production.",
+          "memory": "I have successfully navigated to the main page and clicked on Agriculture. 2 out of 10 steps completed. Next step is to click on Crop Production.",
           "next_goal": "Click on Crop Production"
         },
         "action": [
@@ -108,9 +108,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743629401.079066,
-        "step_end_time": 1743629403.6526992,
-        "input_tokens": 2366,
+        "step_start_time": 1743677812.81745,
+        "step_end_time": 1743677815.7910335,
+        "input_tokens": 2361,
         "step_number": 3
       }
     },
@@ -118,7 +118,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Crop Production",
-          "memory": "Successfully navigated to the initial URL, clicked on Agriculture and then on Crop Production. 3 out of 10 steps completed. Next step is to click on Forage/ Peat Moss Processing - 01602",
+          "memory": "I have successfully navigated to the Agriculture page and clicked on Crop Production. 3 out of 10 steps completed. Next step is to click on Forage/ Peat Moss Processing - 01602",
           "next_goal": "Click on Forage/ Peat Moss Processing - 01602"
         },
         "action": [
@@ -179,9 +179,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743629403.7116811,
-        "step_end_time": 1743629406.4776366,
-        "input_tokens": 2509,
+        "step_start_time": 1743677815.839595,
+        "step_end_time": 1743677820.694577,
+        "input_tokens": 2506,
         "step_number": 4
       }
     },
@@ -189,7 +189,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I clicked on Forage/ Peat Moss Processing - 01602",
-          "memory": "Successfully navigated to the initial URL, clicked on Agriculture, Crop Production and then on Forage/ Peat Moss Processing - 01602. 4 out of 10 steps completed. Next step is to review the 2025 premium rate.",
+          "memory": "I have successfully navigated to the Crop Production page and clicked on Forage/ Peat Moss Processing - 01602. 4 out of 10 steps completed. Next step is to review the 2025 Premium Rate.",
           "next_goal": "Review 2025 Premium Rate"
         },
         "action": [
@@ -249,9 +249,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743629406.5278091,
-        "step_end_time": 1743629409.3189447,
-        "input_tokens": 2679,
+        "step_start_time": 1743677820.7277262,
+        "step_end_time": 1743677823.5791974,
+        "input_tokens": 2673,
         "step_number": 5
       }
     },
@@ -259,8 +259,8 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I reviewed the 2025 premium rate",
-          "memory": "Successfully navigated to the initial URL, clicked on Agriculture, Crop Production, Forage/ Peat Moss Processing - 01602 and reviewed the 2025 premium rate. 5 out of 10 steps completed. Next step is to close the browser.",
-          "next_goal": "Close the Browser"
+          "memory": "I have successfully navigated to the Forage/ Peat Moss Processing - 01602 page and reviewed the 2025 premium rate. 5 out of 10 steps completed. Next step is to close the browser.",
+          "next_goal": "Close the browser"
         },
         "action": [
           {
@@ -273,8 +273,8 @@
       "result": [
         {
           "is_done": false,
-          "extracted_content": "\ud83d\udcc4  Extracted from page\n: \n\n\nSearch/Browse - Premium Rate Manual\n\n\n\n\n[![Workers Compensation Board Alberta Logo](/WCB.RateManual.WebServer/Content/images/WCB-logo.svg)](https://www.wcb.ab.ca/)\n\n\n* [Search/Browse](/WCB.RateManual.WebServer/)\n* [All Rates](/WCB.RateManual.WebServer/AllRates)\n* [Exempt Activities](/WCB.RateManual.WebServer/ExemptActivities)\n* [Contact Us](https://www.wcb.ab.ca/about-wcb/contact-us.html)\n* [Help](https://www.wcb.ab.ca/utility-navigation/help/)\n\n\n\n\n\nPremium Rate Manual\n===================\n\nFind your industry here by searching or navigating the categorized list below:\n\n\n\nSearch\n\n\n\nSearch by keywords related to your business activities, or enter the industry code (minimum of 3 characters)\nback\n\n\n\n\nAgriculture\n-----------\n\n### Crop Production\n\n\nAgriculture\nBusiness and Personal Services\nConstruction\nManufacturing\nMining, Oil and Gas\nMunicipal Government, Education and Health\nProvincial Government\nRetail and Wholesale\nTransportation\n\n\nCrop Production\nGreenhouses and Other Related Farming\nLarge Animal Producers/Handlers\nLogging Operations/Timber Management\nSmall Animal Producers/Handlers\nEngineering/Earth Science Services\nFinancial/Business Services\nHospitality/Outdoor Recreational Services\nIndustrial Camp Catering\nLaundry/Cleaning Services\nManufactured Home Parks/Property Management\nPersonal Care and Medical Clinics\nRecreation Facilities/Pet Services\nSecurity/Investigative Services\nConcrete Construction\nConstruction Trade/Wood Framing Services\nDoors/Windows - Mfg/Install\nDrywall/Stucco -Sales/Service\nElectronic Equipment/Metal Products\nExterior Construction Services - Fabrication/Install\nFlooring/Tile - Sales/Install\nIndustrial/Commercial Construction\nMechanical Contracting Services\nMobile Equipment Operations\nPainting/Coatings -Residential/Industrial\nResidential General Contractor\nStaffing Services - Labour\nTesting/Inspection Services\nAdvertising/Printing\nCarpentry/Wood Products\nCompressors/Power Units\nFood/Beverage Processing\nFoundries/Building Products\nMachining/Coating Services\nMeat/Poultry Operations\nMetal/Plastic Products\nPanelboard\nPetrochemicals/Refineries\nPulp Mills\nSawmills/Timber Services\nSheet Metal Shops and Equipment\nSmall Product Assembly/Fabric Goods Mfg\nSteel Pipe/Products\nSteel/Metal Products\nTransit Mix Operations\nDrilling/Well Casing Operations\nIndustrial Cleaning Services\nMining/Cement and Lime - Mfg\nOil and Gas Producers\nOil Sands/Salt Mining Operations\nOilfield Services\nSeismic Exploration Services\nSpecialty Drilling Services\nWell Servicing with Rigs\nChild Care Services\nCities/Towns/Villages\nCommunity/Social Services\nContinuing Care and Support Services\nDisability Rehabilitation\nFirst Nations/Metis Settlements\nHospitals/Acute Care Centres\nMunicipal Services and Co-Operatives\nPost-Secondary/Safety Education\nSchool Boards/Schools\nProvincial Government\nAutomobile Body Repairs\nAutomotive Dealers\nAutomotive Repairs/Service Stations\nDepartment/General Store Operations\nFarm Equipment Dealers\nFood/Alcohol - Distribution/Sales\nGrain/Seed Handling Operations\nHome Improvement/Garden Centres\nIndustrial Supply Stores/Chemical Products\nIndustrial/Oilfield Equipment Rentals\nMachinery/Safety Equipment - Sales/Service\nMobile Equipment - Sales/Rentals/Service\nOffice/Business Equipment - Sales/Service\nPetroleum/Propane Dealers\nRecreational Vehicles -Sales/Rentals/Service\nSpecialty Retail/Drug Stores\nWholesale Distribution\nFlight/Air Service Operations\nGeneral Trucking\nMedia/Arts - Production/Distribution\nPublic Warehousing\nRailway Transportation Services\nRoad Transportation Services\nSchool Bus Operations\nSpecialized Trucking\nTelecommunication Services\nUtility Services - Gas/Electric\nWaste Management Services/Salvage Dealers\n\n\nForage/Peat Moss Processing - 01602\nHarvesting/Baling - Custom - 01601\nHay/Grain/Crop Farming - 01600\nAgri-Tourism Farms - 01802\nGreenhouses/Market Gardens - 01800\nMushroom Producers/Bait Farms - 01801\nBeef Producers - 01200\nDairy Farms - 01203\nElk/Bison Producers - 01204\nFeed Lots - 01201\nLivestock Auctions/Stockyards - 01202\nLlama/Alpaca Producers - 01205\nRiding Academies/Horse Stables - 01206\nLogging/Woodland Operations - 03100\nTimber Management - 03902\nApiaries - 01404\nFishing/Fish or Fur Farms - 01403\nGoat/Sheep Producers - 01402\nHog Producers - 01400\nPoultry/Egg Producers - 01401\nArchaeological Survey - 89927\nEngineering - 86400\nGeological/Environmental Consulting - 86414\nGeophysical Survey excluding Seismic - 86405\nMap Making - 86410\nMud Logging Services - 09900\nSoftware/Architects/Design - 86913\nWaterfowl Preservation - 86408\nAdminister Out of Province Ops - 86921\nAdvertising Agencies - 86200\nBanks/Financial Services - 70200\nBoards, Agencies, Commissions (Compulsory) - 93109\nBoards, Agencies, Commissions (Voluntary) - 93113\nBusiness Services - 86901\nDocument Storage/Exchange - 52705\nInsurance Companies - 73501\nLegal Services - 86600\nManagement Consultants - 86902\nPersonnel Recruitment Agencies - 86920\nProfessional/Trade/Charitable Associations - 89101\nReal Estate Dealers/Land Develop - 73500\nStaffing Services - Clerical/Professional - 86906\nTravel Agency/Motor Association - 85925\nChurches/Religious Orders - 83100\nFuneral Services/Cemeteries - 87700\nGolf Clubs/Ranges - 85900\nHotels/Convention Centres - 87503\nRestaurants/Catering - 87501\nSki Resorts/Gondolas - 85904\nSports and Recreation - 87600\nYouth/Religious Camps - 87603\nIndustrial Camp Catering - 87505\nCoin Operated Laundromats - 87402\nCommercial Laundries - 87400\nDomestic Help - Homeowner Only - 87300\nDry Cleaners - 87401\nExterior High Rise Window Cleaning - 89703\nFumigating - 89704\nFurnace Cleaning Services - 89705\nJanitorial/Cleaning Services - 89701\nManufactured Home Parks - 87500\nProperty Management/Hostels - 89702\nAnimal Health Services - 02104\nBeauty/Barber Shops and Schools - 87200\nHealth Related Products - Mfg - 82700\nHealth/Allied Services - Miscellaneous - 82701\nPrivate Medical/Physiotherapy Centres - 82500\nAnimal Shelters/Pounds - 02116\nArcades - 85922\nArenas/Stadiums - 85919\nBowling Alleys/Billiard Parlours - 85300\nCasinos/Dance Halls - 85916\nCommunity Associations/Facilities - 85901\nExhibition Associations - 89901\nKennels/Pet Grooming - 02117\nParking Facilities/Storage Garages - 51701\nPrivate Clubs - 87508\nTennis/Squash/Rock Climbing Facilities - 89907\nZoos/Game Farms - 80703\nCommissionaires/Armoured Car Services - 89913\nInvestigative Services - 89924\nSecurity Services/Industrial Patrols - 89902\nBrick/Masonry Contracting - 42102\nCaisson Operations - 42159\nConcrete Construction - 42104\nRefractory Linings - Sell/Install - 42158\nConstruction Framing Contractor - 42143\nConstruction Trade Services - 40401\nDoors/Windows - Mfg/Install - 42121\nOverhead Doors - Install/Repair - 30302\nAcoustic Materials - Sales/Install - 42141\nDrywall/Plaster/Stucco/etc - 42135\nElectronic Equipment - Sales/Service - 42160\nLight Metal Products - Assemble/Install - 31501\nMonument/Tombstone Dealers - 35301\nVacuum Systems -Assemble/Install - 42131\nRoofing - 42118\nSiding/Eavestrough - Fabricate/Install - 42151\nFloor Coverings - Sales/Install - 42125\nTile/Terrazzo - Sales/Install - 42113\nHeavy Machine/Equipment - Install/Service - 42109\nIndustrial Plant Maintenance - 42129\nIndustrial/Commercial Construction - 40400\nMechanical Insulation - Install/Service - 42184\nOilfield Maintenance/Construction - 06304\nPrecast Concrete - Erect - 42161\nScaffold/Cranes - Rental/Erect - 89928\nSheet/Metal Structures - Erect - 42105\nStorage Tanks - Erect/Dismantle - 42156\nStructural Steel - Erect - 42106\nDust Suppression Systems - 31507\nElectric Wiring - 42124\nElevators/Escalators - Install/Service - 42110\nFire Sprinklers - Install/Service - 42144\nHeating Systems - Fabricate/Install - 42117\nMechanical Contracting - 42122\nOverhead Cranes - Service - 31508\nRefrigeration Equipment - Sales/Service - 89600\nService Station Equipment - Sales/Service - 89605\nTV/Radio Antennae - Install - 42128\nFeed Lot/Corral Cleaning - 02105\nLandscaping - 02100\nLawn Maintenance - 02103\nMobile Equipment Operation - 40604\nPaving/Surfacing - 40602\nPipeline Construction - 40905\nPower Line - Construct/Remove - 40901\nRight-of-Way Maintenance - 02200\nSod Growers - 01905\nTree/Shrub Nurseries - 01904\nIndustrial Coating Services - 42139\nPainting/Decorating - 42111\nSand Blasting - 42120\nResidential General Contractor - 40405\nStaffing Services - Labour - 86911\nCathodic Protection Service - 51504\nHeat/Air Systems - Test - 86413\nLand/General Survey - 86401\nNDT Testing including Visual Inspection - 51502\nOil/Gas Meters - Inspect/Test - 51503\nPower Poles - Test/Preserve - 40907\nQuality Control Services - Construction - 51506\nResearch/Material Testing Labs - 86403\nVisual Inspection Services - 86922\nElectronic/Photographic Printing - 27402\nNewspaper/Flyer Distribution - 86202\nOutdoor Advertising - 39701\nPrinting/Book Binding - 28600\nPublishing - 28900\nSigns/Advertising Displays - Mfg - 28603\nCabinets/Counters - Assemble/Install - 42133\nFinishing Carpentry - 42147\nFurniture - Mfg/Repair - 26101\nWood Products - Mfg - 25401\nCompressors/Power Unit - Mfg - 62304\nIndustrial Belting - Install/Service - 16902\nBakeries/Pasta - Mfg - 12900\nBreweries - 14500\nDairy/Fruit Juice Processing - 10500\nFeed Mills - 12301\nFlour Mills - 12400\nFood Processing - Miscellaneous - 13100\nLiquor/Wine - Mfg - 14300\nMalt - Mfg - 13900\nMedicine/Vitamins - Mfg - 37402\nSeed Cleaning Plants - 02101\nSoft Drinks/Water/Ice - Mfg - 14100\nVegetable Oils/Beet Sugar Processing - 13500\nVegetables - Process/Grade - 13905\nAsphalt Roofing Products - Mfg - 27200\nConcrete Products - Mfg - 34700\nFerrous Free Metal Foundries - 29700\nFibreglass Insulation - Mfg - 35401\nFibreglass/Artificial Stone Products - Mfg - 38500\nGypsum/Clay Products - Mfg - 34500\nIron/Steel Foundries - 29102\nTires/Rubber Products - Mfg - 16901\nMachining - 30801\nMetal/Porcelain Products - Coating - 30403\nMeat Processing - 10100\nPoultry Loading Services - 01103\nRendering Plants - 10104\nPlastic Products/Metal Extrusion - Mfg - 37301\nPanelboard - Mfg - 27103\nOilfield/Industrial Hazardous Waste Management - 36502\nPetrochemicals - Mfg - 37801\nRefining Crude Oil - 36500\nSulphur Process - 06501\nPulp Mills - 27102\nPosts - Peel/Point - 25900\nSawmills/Planing Mills - 25100\nTimber Treating - 25901\nHeat/Cooling Equipment - Mfg - 30700\nSheet Metal Shops - 30412\nSwitchboard/Electrical Panel - Mfg - 33602\nAwnings/Tents/Tarps - Mfg/Repair - 22101\nCardboard Box/Tubing/Bag - Mfg - 27300\nClothing/Leather Good - Mfg/Repair - 24900\nDrapes/Linens - Mfg/Repair/Install - 22901\nElectrical Components - Mfg - 33902\nInstrumentation - Mfg - 38100\nJewelry - Mfg - 38200\nLapidary Services - 38201\nPicture Frame/Case/Casket - Mfg - 39901\nPottery - Mfg - 69903\nRope/Carpet - Mfg/Repair - 21300\nRubber Stamps/Stencils/Vinyl Goods - Mfg - 16900\nSporting Equipment/Brooms - Mfg - 39300\nTaxidermists - 89916\nWindow/Store Display Ad Services - 86201\nSteel Pipe - Mfg - 29200\nSteel Service Centre - No Salvage - 62500\nIndustrial Electric Equipment - Mfg - 33606\nManufactured Products - Coating/Heat Treating - 30407\nMetal Furniture - Mfg - 26401\nSteel excluding Foundries - Mfg - 29100\nSteel/Metal Fabrication - 30100\nWelding - 89401\nTransit Mix Operations - 34800\nOil/Gas Well Drilling - 09600\nWell Casing Services - 09915\nMobile Oilfield Waste Treatment Services - 09927\nMobile Pressure Cleaning Services - 09902\nWet/Dry Vacuum Removal - 06306\nCement/Lime including Quarrying - Mfg - 34101\nMining/Overburden Removal - 06110\nField Production Operators - 06305\nHeavy Oil/Oil Sands - Research/Development - 06601\nLand/Permit Man Services - 73702\nOil/Gas Pipeline Transmission - 51501\nPipeline Cleaning - 51500\nUpstream Oil/Gas - 06300\nOil Sands Operations - 06600\nSalt - Mine/Refine - 07700\nOilfield Christmas Tree Services - 09921\nOilfield Downhole Services - 09911\nSeismic Survey - 09200\nHorizontal/Angular Boring - 42103\nRathole/Rig Anchor Drilling - 09904\nShot Hole Drilling - 09201\nSoil Samples - Procurement - 42150\nWater Well/Deep Core Drilling - 42130\nWell Servicing with Service Rigs - 09903\nDay Homes/Day Care Centres - 82801\nPlay Schools - 82812\nCities - 95104\nTowns - 95101\nVillages - 95100\nFriendship/Cultural Centres - 85909\nSocial/Community Support Services - 89925\nContinuing Care Facilities - 82808\nHome Support Services - 82704\nSeniors' Supportive Living/Lodges - 82800\nDisability Rehabilitation - 82806\nFirst Nations - 95105\nMetis Settlements - 95108\nHealth Care Services - Other Providers - 82710\nHealth Care Services - Private - 82705\nHealth Care Services - Public - 82100\nFire Protection Co-operatives - 82712\nIrrigation/Drainage District - 57601\nMunicipal Districts - 95102\nWater Treatment/Distribution - 57602\nColleges - 80103\nInstitutes of Technology - 80311\nLibrary Boards - 80700\nMuseums/Art Galleries - 80701\nSafety/First Aid Training - 86927\nSpecialty Schools - Professional/Personal - 80301\nUniversities - 80500\nDriving/Testing Schools - 89923\nKindergartens - 80106\nPrivate/Independent Schools - 80105\nSchool Boards - 80102\nProvincial Government - 93200\nAutomobile Body Repairs - 65800\nAuto Dealers - 65600\nGeneral Automotive Repairs/Auto Wreckers - 65808\nService Stations - 65400\nAppliances - Sales/Service - 67604\nAuctions - 69901\nDepartment/General Stores - 64200\nFlorists - Wholesale/Retail - 69200\nFurniture Stores - 67601\nHardware/Auto Parts Stores/etc - 67300\nInventory Services - 86909\nPet/Seed/Feed Stores - 69914\nSmall Equipment/Appliances - Rental/Service - 89908\nFarm Implement Dealers - 62200\nFood/Convenience Stores - 63100\nGas Bars/Car Wash, Retail - No Servicing - 65406\nHome Provisioner/Butcher Shops - 63103\nLiquor/Wine/Beer Sales Outlets - 63105\nWholesale Food Distribution - 69916\nGrain/Seed Handling Operations - 52400\nGarden Supply Centre - 62908\nHome Improvement Centres - 25403\nChemical Products - Package/Distribute - 37902\nIndustrial Supply Stores - 62303\nIndustrial/Oilfield Equipment - Rental - 89910\nMachinery/Equipment - Sales/Service - 62302\nSafety Equipment - Sales/Rental - 86905\nMobile Equipment Dealers - 62201\nEntertainment Equipment - Sales/Service - 67602\nMedical Equipment - Sales/Service - 33901\nOffice Equipment - Sales/Service - 62300\nBulk Petroleum Dealers - 60800\nPropane Dealers - 69300\nIndustrial Camp Trailers - Rental - 89922\nSport Vehicles - Sales/Service - 69915\nTrailers - Sales/Rental with Service - 69912\nClothing/Shoe Stores - 66900\nDrug Stores - 68100\nRetail Specialty Stores - 69904\nSales Operations - 62903\nTravelling Sales/Mfg Agents - 89100\nWholesaling - 62900\nAir Service - Regular/Charter - 50104\nAir Service - Scheduled Commercial - 50100\nAircraft - Ground Support Services - 50200\nFlight Operations - Miscellaneous - 50203\nHelicopter Service - 50107\nGeneral Trucking - 50714\nAlliance Theatre Trust Funds - 85934\nFilm Production Including Performers - 85907\nLive Theatres/Ballet - 85918\nMovie Theatres - 85100\nRadio/TV Stations - 54300\nPacking/Crating - Custom - 51705\nPublic Warehousing - 52700\nRailway Transportation Service - 50607\nBus Depots - 50802\nBus Lines - 50800\nTaxi Cabs/Limousine Service - 51200\nSchool Bus - 50801\nMove Buildings - 42155\nOilfield Trucking - 50720\nSpecialized Trucking - 50701\nClosed Circuit TV/Cablevision - 54301\nTelecommunication Systems - 54501\nUtilities - Electric/Natural Gas - 57400\nGarbage Collection/Disposal - 57901\nScrap/Salvage Dealers - 62700\nTowing Auto Vehicles - 65402\nWaste - Recycle/Salvage/Reclaim - 27400\n\n\n\n\n\nSelect a result to see details or clear this search and start over.\n\n\n### [Forage/Peat Moss Processing](/WCB.RateManual.WebServer/Industry/IndustryDetails/1602)\n\n**Industry Code: 01602**\n\nCompulsory\n\n**2025 Premium Rate:** $2.41\n\nThis industry covers the processing of forage crops and includes any harvesting conducted by the processor. This industry also includes the harvesting, processing and bagging or baling of peat moss.\n\n**Activities:**  \n\nAlfalfa Cubing (Including Harvesting)  \nAlfalfa, Pelletized, Mfg (Including Harvesting)  \nCompressed Hay Mfg (Including Harvesting)  \nForage Processing (Including Harvesting)  \nHay Compression (Including Harvesting)  \n(+4 more)\n\n[See Full Details](/WCB.RateManual.WebServer/Industry/IndustryDetails/1602) \n\n\n\n\n\n\n* 1\n\n\n\n\n![WCB logo image](/WCB.RateManual.WebServer/Content/images/WCB-logo-solo.svg)\n\n\n**Contact WCB-Alberta**\n\nEdmonton: 780-498-3999\n  \n\nCalgary: 403-517-6000\n\n\n**Toll free**\n\nAlberta: 1-866-922-9221\n  \n\nCanada wide: 1-800-661-9608\n\n\n\nCopyright \u00a92018 The Workers' Compensation Board \u2013 Alberta. All rights reserved.\n[Terms of use](https://www.wcb.ab.ca/utility-navigation/terms-of-use.html)\n\n[Accessibility](https://www.wcb.ab.ca/utility-navigation/accessibility.html)\n\n[Help](https://www.wcb.ab.ca/utility-navigation/help/)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
-          "include_in_memory": false
+          "extracted_content": "\ud83d\udcc4  Extracted from page\n: ```json\n{\n  \"2025 Premium Rates\": [\n    {\n      \"industry\": \"Forage/Peat Moss Processing\",\n      \"industryCode\": \"01602\",\n      \"rate\": \"$2.41\"\n    }\n  ]\n}\n```\n",
+          "include_in_memory": true
         }
       ],
       "state": {
@@ -293,9 +293,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743629409.3590374,
-        "step_end_time": 1743629414.7349288,
-        "input_tokens": 3063,
+        "step_start_time": 1743677823.6097474,
+        "step_end_time": 1743677827.224582,
+        "input_tokens": 3050,
         "step_number": 6
       }
     },
@@ -303,7 +303,7 @@
       "model_output": {
         "current_state": {
           "evaluation_previous_goal": "Success - I closed the browser",
-          "memory": "Successfully completed all steps of the task. 10 out of 10 steps completed.",
+          "memory": "I have successfully completed all the steps. The 2025 premium rate for industry code 01602 is $2.41. 10 out of 10 steps completed.",
           "next_goal": "Done"
         },
         "action": [
@@ -340,9 +340,9 @@
         "title": "Search/Browse - Premium Rate Manual"
       },
       "metadata": {
-        "step_start_time": 1743629415.0273075,
-        "step_end_time": 1743629417.4760795,
-        "input_tokens": 8794,
+        "step_start_time": 1743677828.2593124,
+        "step_end_time": 1743677830.6269841,
+        "input_tokens": 3270,
         "step_number": 7
       }
     }
