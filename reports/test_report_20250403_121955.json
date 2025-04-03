@@ -1,8 +1,8 @@
 {
-  "timestamp": "2025-04-03T06:56:26.180830",
+  "timestamp": "2025-04-03T12:19:19.859292",
   "summary": {
-    "total": 4,
-    "passed": 4,
+    "total": 3,
+    "passed": 3,
     "failed": 0,
     "pass_rate": 100.0
   },
@@ -9155,7 +9155,7 @@
           }
         ]
       },
-      "duration": 4.33
+      "duration": 4.0
     },
     {
       "test_name": "TestBankOfCanadaAPI",
@@ -16543,25 +16543,16 @@
           }
         }
       },
-      "duration": 6.91
+      "duration": 4.38
     },
     {
       "test_name": "TestApiCat",
       "status": "passed",
       "result": {
-        "fact": "Approximately 40,000 people are bitten by cats in the U.S. annually.",
-        "length": 68
+        "fact": "When your cats rubs up against you, she is actually marking you as 'hers' with her scent. If your cat pushes his face against your head, it is a sign of acceptance and affection.",
+        "length": 137
       },
-      "duration": 35.8
-    },
-    {
-      "test_name": "TestWcbPremium",
-      "status": "passed",
-      "result": {
-        "premium_rate": "$2.41",
-        "industry_code": "01602"
-      },
-      "duration": 40.43
+      "duration": 35.23
     }
   ]
 }
