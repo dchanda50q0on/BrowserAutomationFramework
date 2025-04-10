@@ -1,6 +1,4 @@
 SearchItem,SubItem,SubSubItem,ExpectedPremiumRate,ExpectedIndustryCode
 Agriculture,Crop Production,Forage/ Peat Moss Processing - 01602,$2.41,01602
 Agriculture,Crop Production,Harvesting/Baling - Custom - 01601,$2.41,01601
-Agriculture,Greenhouses and Other Related Farming,Agri-Tourism Farms - 01802,$2.41,01802
-Agriculture,Greenhouses and Other Related Farming,Greenhouses/Market Gardens - 01800,$2.41,01800
-Construction,Concrete Construction,Brick/Masonry Contracting - 42102,$2.41,42102
+Construction,Concrete Construction,Brick/Masonry Contracting - 42102,$4.30,42102

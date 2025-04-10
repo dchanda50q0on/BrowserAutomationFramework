@@ -26,7 +26,7 @@ class TestWcbPremium(BaseTest):
                 f'Click {case["sub_item"]}',
                 f'Click {case["sub_sub_item"]}',
                 'Verify current page',
-                'Store premium data for validation',
+                'Store 2025 premium rate for validation',
                 'Go back to homepage'
             ])
 
