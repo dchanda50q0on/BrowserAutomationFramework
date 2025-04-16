@@ -3,7 +3,8 @@ import os
 from abc import ABC, abstractmethod
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Optional, Type
+from typing import Any, Optional, Type, Dict
+from dotenv import load_dotenv
 
 from browser_use.agent.service import Agent
 from browser_use.controller.service import Controller
@@ -11,18 +12,39 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from pydantic import BaseModel, SecretStr
 from core.config import Config
 
+# Load environment variables from .env file
+load_dotenv()
+
 
 class BaseTest(ABC):
     def __init__(self):
         self.screenshot_dir = Config.get_screenshot_dir()
         self.screenshot_dir.mkdir(exist_ok=True)
 
-        # Get the output model class (not instance)
+        # Load credentials from environment variables
+        self.credentials: Dict[str, str] = {
+            'username': os.getenv('TEST_USERNAME', ''),
+            'password': os.getenv('TEST_PASSWORD', '')
+        }
+
+        # Validate credentials
+        if not all(self.credentials.values()):
+            raise ValueError(
+                "Missing credentials in environment variables. "
+                "Please set TEST_USERNAME and TEST_PASSWORD in .env file"
+            )
+
+        self.login_selectors: Dict[str, str] = {
+            'username': '#username',
+            'password': '#password',
+            'submit': '#submit',
+            'success_message': 'text=Congratulations'
+        }
+        self._login_url = ''
+        self._post_login_url = ''
+
         output_model_class = self.get_output_model()
-
-        # Initialize Controller with the model class
         self.controller = Controller(output_model=output_model_class)
-
         self.llm = self._initialize_llm()
 
     def _initialize_llm(self):
@@ -33,10 +55,9 @@ class BaseTest(ABC):
             api_key=SecretStr(os.environ["GEMINI_API_KEY"])
         )
 
-
     @abstractmethod
     def get_task(self) -> str:
-        """Define the task instructions for the agent"""
+        """Define the task instructions for the agent (without credentials)"""
         pass
 
     @abstractmethod
@@ -63,32 +84,66 @@ class BaseTest(ABC):
             print(f"Failed to take screenshot: {e}")
         return None
 
-    async def run(self):
-        """Execute the test using browser-use agent"""
-        # Force headless mode through environment variable
-        os.environ["PLAYWRIGHT_HEADLESS"] = "1"
+    async def _perform_secure_login(self, page):
+        """Execute login completely outside agent system"""
+        if not self.credentials or not self._login_url:
+            return
 
-        # Also set browser type if not already set
-        os.environ["BROWSER_TYPE"] = os.getenv("BROWSER_TYPE", "chromium")
+        try:
+            # Load login page with timeout
+            await page.goto(self._login_url, wait_until="networkidle", timeout=10000)
+
+            # Verify all required elements exist
+            for field, selector in self.login_selectors.items():
+                if field in ['username', 'password', 'submit']:
+                    if not await page.query_selector(selector):
+                        raise ValueError(f"Login field not found: {field} ({selector})")
+
+            # Execute login via direct Playwright commands
+            await page.fill(self.login_selectors['username'], self.credentials['username'])
+            await page.fill(self.login_selectors['password'], self.credentials['password'])
+
+            # Wait for navigation to complete
+            async with page.expect_navigation(timeout=10000):
+                await page.click(self.login_selectors['submit'])
+
+            # Verify successful login
+            await page.wait_for_selector(
+                self.login_selectors['success_message'],
+                timeout=5000,
+                state="visible"
+            )
+
+        except Exception as e:
+            print(f"SECURE LOGIN FAILED: {e}")
+            await self._take_screenshot(None, "login_failure.png")
+            raise RuntimeError("Secure login system failed") from e
+
+    async def run(self):
+        """Execute the test with secure credential handling"""
+        os.environ["PLAYWRIGHT_HEADLESS"] = "1"
+        os.environ["BROWSER_TYPE"] = os.getenv("BROWSER_TYPE", "firefox")
 
         agent = Agent(
-            self.get_task(),
+            self.get_task(),  # Credential-free task
             self.llm,
             controller=self.controller,
             use_vision=False,
-            # Add explicit browser launch options if your Agent class supports them
-           )
+        )
 
         try:
-            # Start the agent
+            # Phase 1: Browser Launch
             if hasattr(agent, 'start'):
                 await agent.start()
 
-            # Execute the test
+            # Phase 2: Secure Login (Bypass Agent Completely)
+            if hasattr(agent, 'page') and self.credentials:
+                await self._perform_secure_login(agent.page)
+
+            # Phase 3: Agent Continues Post-Login
             history = await agent.run()
             history.save_to_file(f'history_{self.__class__.__name__}.json')
 
-            # Validate results
             test_result = history.final_result()
             validated_result = self.get_output_model().model_validate_json(test_result)
             self.validate_results(validated_result)

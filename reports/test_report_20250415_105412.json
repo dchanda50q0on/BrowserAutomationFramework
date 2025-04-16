@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-04-15T10:53:15.774708",
+  "summary": {
+    "total": 2,
+    "passed": 1,
+    "failed": 1,
+    "pass_rate": 50.0
+  },
+  "details": [
+    {
+      "test_name": "TestLogin",
+      "status": "failed",
+      "error": "Test failed: ",
+      "duration": 38.29
+    },
+    {
+      "test_name": "TestWcbPremium",
+      "status": "passed",
+      "result": {
+        "premium_rate": "$2.41",
+        "industry_code": "01602"
+      },
+      "duration": 56.29
+    }
+  ]
+}

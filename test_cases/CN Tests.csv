@@ -1,0 +1,16 @@
+Test Case ID,Test Case Description,Preconditions,Test Steps,Expected Result
+TC_UI_001,Verify that all top navigation menu items are visible and clickable,User is on home page,1. Navigate to https://www.cn.ca/en/,All menu items are displayed and redirect to correct subpages
+,,,"2. Verify presence of menu items like ""Your Industry"", ""Our Services"", ""Customer Centre""",
+,,,3. Click each item and confirm redirection,
+TC_UI_002,Verify breadcrumb trail on inner pages,User navigates to any subpage,1. Go to https://www.cn.ca/en/our-services/intermodal/,"Breadcrumb like ""Home > Our Services > Intermodal"" is shown"
+,,,2. Check if breadcrumb is present and shows correct path,
+TC_ACC_001,Verify website complies with accessibility standards (WCAG 2.1),None,1. Open https://www.cn.ca/en/,Website is fully accessible per WCAG 2.1 Level AA
+,,,"2. Use screen reader (e.g., NVDA or VoiceOver)",
+,,,3. Use keyboard to navigate site,
+,,,4. Check alt text for images and semantic HTML structure,
+TC_FUNC_001,Verify Carbon Calculator tool functions correctly,User on Carbon Calculator page,1. Go to https://www.cn.ca/en/customer-centre/tools/carbon-calculator/,Emissions estimate is returned based on input
+,,,2. Enter shipment details,
+,,,3. Click “Calculate”,
+TC_FUNC_002,Verify “Contact Us” form submission works properly,User on Contact page,1. Visit https://www.cn.ca/en/contact-us/,Form is submitted and confirmation is shown
+,,,2. Fill required fields,
+,,,3. Submit form,

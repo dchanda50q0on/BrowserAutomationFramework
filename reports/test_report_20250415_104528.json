@@ -1,0 +1,29 @@
+{
+  "timestamp": "2025-04-15T10:44:40.863546",
+  "summary": {
+    "total": 2,
+    "passed": 2,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestLogin",
+      "status": "passed",
+      "result": {
+        "success_message": "Congratulations student. You successfully logged in!",
+        "page_title": "Logged In Successfully | Practice Test Automation"
+      },
+      "duration": 42.99
+    },
+    {
+      "test_name": "TestWcbPremium",
+      "status": "passed",
+      "result": {
+        "premium_rate": "$2.41",
+        "industry_code": "01602"
+      },
+      "duration": 47.26
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-04-15T10:09:06.211115",
+  "summary": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "pass_rate": 0.0
+  },
+  "details": [
+    {
+      "test_name": "TestLogin",
+      "status": "failed",
+      "error": "Agent.__init__() got an unexpected keyword argument 'credentials'",
+      "duration": 0.14
+    }
+  ]
+}
