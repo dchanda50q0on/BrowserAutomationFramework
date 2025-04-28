@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-04-28T17:37:25.967956",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAccentureJobSearch",
+      "status": "passed",
+      "result": {
+        "job_title": "There are 7 job postings. None of them are related to \"Curam Tech Lead\"",
+        "job_count": 7
+      },
+      "duration": 91.6
+    }
+  ]
+}

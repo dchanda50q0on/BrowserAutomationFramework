@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-04-28T17:15:50.291406",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAccentureCareers",
+      "status": "passed",
+      "result": {
+        "search": "",
+        "click": "",
+        "tab": "",
+        "chat": "I opened google.com and searched for Accenture Canada. I clicked on the first link, then on the Careers Tab and clicked Search Jobs. I searched for Curan Tech Lead role.  The URL of the page is https://www.accenture.com/ca-en/careers/jobsearch?jk=&sb=1&vw=0&is_rj=0&pg=1 and the title is Search Jobs. I have completed the task.",
+        "close": "",
+        "url": "https://www.accenture.com/ca-en/careers/jobsearch?jk=&sb=1&vw=0&is_rj=0&pg=1",
+        "title": "Search Jobs"
+      },
+      "duration": 64.34
+    }
+  ]
+}

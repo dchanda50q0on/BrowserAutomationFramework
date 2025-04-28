@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-04-28T19:00:20.892783",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAccentureCareers",
+      "status": "passed",
+      "result": {
+        "search": "Searched for Accenture Canada and Curan Tech Lead role",
+        "click": "Clicked on the first link, then clicked on the Careers Tab and clicked Search Jobs",
+        "tab": "Switched to the Careers Tab",
+        "chat": "Successfully opened google.com and searched for Accenture Canada. Clicked on the first link, then clicked on the Careers Tab and clicked Search Jobs. Got URL and title of the page. Searched for Curan Tech Lead role. Closed the browser.",
+        "close": "Closed the browser",
+        "url": "https://www.accenture.com/ca-en/careers/jobsearch",
+        "title": "Search Jobs at Accenture"
+      },
+      "duration": 98.62
+    }
+  ]
+}

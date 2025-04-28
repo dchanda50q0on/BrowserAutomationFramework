@@ -1,0 +1,48 @@
+{
+  "timestamp": "2025-04-28T19:44:53.130689",
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestApiCat",
+      "status": "passed",
+      "result": {
+        "fact": "A cat's back is extremely flexible because it has up to 53 loosely fitting vertebrae. Humans only have 34.",
+        "length": 106
+      },
+      "duration": 41.52
+    },
+    {
+      "test_name": "TestWcbPremium",
+      "status": "passed",
+      "result": {
+        "premium_rate": "$2.41",
+        "industry_code": "01602"
+      },
+      "duration": 62.62
+    },
+    {
+      "test_name": "TestAccentureJobSearch",
+      "status": "passed",
+      "result": {
+        "search_term": "SAP",
+        "job_titles": [
+          "SAP BTP Lead",
+          "SAP Analyst",
+          "SAP BW/Analytics Specialist",
+          "SAP Integration Lead",
+          "SAP PS Specialist - Bilingual",
+          "SAP FICO Service Delivery Lead",
+          "Data Management lead (SAP)",
+          "SAP Finance Manager",
+          "SAP ISU Billing Consultant"
+        ]
+      },
+      "duration": 66.35
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-04-28T19:05:44.817282",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAcnCareers",
+      "status": "passed",
+      "result": {
+        "url": "https://www.accenture.com/ca-en/careers/jobsearch?jk=Curan%20Tech%20Lead&sb=0&vw=0&is_rj=0&pg=1",
+        "title": "Search Jobs at Accenture"
+      },
+      "duration": 95.69
+    }
+  ]
+}

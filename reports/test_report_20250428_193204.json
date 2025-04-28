@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-04-28T19:31:08.254960",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAccentureJobSearch",
+      "status": "passed",
+      "result": {
+        "homepage_url": "https://www.accenture.com/ca-en",
+        "careers_url": "https://www.accenture.com/ca-en/careers",
+        "job_search_field_visible": true,
+        "job_found": true
+      },
+      "duration": 56.19
+    }
+  ]
+}

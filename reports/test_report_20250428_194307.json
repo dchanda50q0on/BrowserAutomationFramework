@@ -1,0 +1,30 @@
+{
+  "timestamp": "2025-04-28T19:41:37.602387",
+  "summary": {
+    "total": 1,
+    "passed": 1,
+    "failed": 0,
+    "pass_rate": 100.0
+  },
+  "details": [
+    {
+      "test_name": "TestAccentureJobSearch",
+      "status": "passed",
+      "result": {
+        "search_term": "SAP",
+        "job_titles": [
+          "SAP BTP Lead",
+          "SAP Analyst",
+          "SAP BW/Analytics Specialist",
+          "SAP Integration Lead",
+          "SAP FICO Service Delivery Lead",
+          "Data Management lead (SAP)",
+          "SAP PS Specialist - Bilingual",
+          "SAP Finance Manager",
+          "SAP ISU Billing Consultant"
+        ]
+      },
+      "duration": 89.8
+    }
+  ]
+}
